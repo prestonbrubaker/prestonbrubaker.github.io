@@ -40,6 +40,9 @@
     let v = canvas.height / 2;
     let vv = 0
 
+    let max_speed = 5
+    let acc = 0.1
+
     // Load the images
     const img = new Image();
     img.src = 'graykitty.png';
@@ -83,19 +86,19 @@
 
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI;
-        const stepSize = 4;
+        const stepSize = acc;
     
         xv += Math.cos(randomAngle) * stepSize;
         yv += Math.sin(randomAngle) * stepSize;
-        xv = Math.min(Math.max(xv, -5), 5);
-        yv = Math.min(Math.max(yv, -5), 5);
+        xv = Math.min(Math.max(xv, -max_speed), max_speed);
+        yv = Math.min(Math.max(yv, -max_speed), max_speed);
         x += xv;
         y += yv;
         x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
         y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
     
         const randomAngle2 = Math.random() * 2 * Math.PI;
-        const stepSize2 = 4;
+        const stepSize2 = acc;
         uv += Math.cos(randomAngle2) * stepSize2;
         vv += Math.sin(randomAngle2) * stepSize2;
         uv = Math.min(Math.max(uv, -5), 5);
