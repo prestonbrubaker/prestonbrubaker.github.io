@@ -2,18 +2,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #orange; <!--Subheader Text?? -->
+    background-color: #red; <!--Canvas Frame?? -->
 }
 
 header {
     background-color: #000000; <!--Header Block Color-->
-    color: orange; 
+    color: yellow; 
     text-align: center;
     padding: 1em 0;
 }
 
 nav ul {
-    background-color: #333; <!-- Subheader Block Color -->
+    background-color: #magenta; <!-- Subheader Block Color -->
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -25,7 +25,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: orange; <!--Subeader Text Color-->
+    color: purple; <!--Subeader Text Color-->
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -33,20 +33,20 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #orange;
+    background-color: #cyan;
 }
 
 main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: orange;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
     text-align: center;
     padding: 1em 0;
-    background-color: #333;
+    background-color: #000000; <!--Footer Block Color-->
     color: orange;
 }
