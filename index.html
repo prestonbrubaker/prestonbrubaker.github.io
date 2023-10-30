@@ -36,30 +36,38 @@
     
     // Load the image
     const img = new Image();
-    img.src = 'grey_cat.png';  // Replace 'image.jpg' with the path to your image if it's different
+    img.src = 'grey_cat.png';
+
+    // Scaling the image
+    let scaledWidth;
+    let scaledHeight;
 
     img.onload = function() {
+        // Define the scaled dimensions (e.g., scaling to half of the original size)
+        scaledWidth = img.width * 0.5;
+        scaledHeight = img.height * 0.5;
+
         // Start the animation once the image is loaded
         animate();
     }
 
-    // Function to draw the image at the current position
+    // Function to draw the image at the current position with scaled dimensions
     function drawImage() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        ctx.drawImage(img, x, y); // Draw the image
+        ctx.drawImage(img, x, y, scaledWidth, scaledHeight); // Draw the scaled image
     }
 
     // Function to update the image's position based on Brownian motion
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI; // Random direction
-        const stepSize = 10; // Adjust this for larger/smaller steps
+        const stepSize = 2; // Adjust this for larger/smaller steps
 
         x += Math.cos(randomAngle) * stepSize;
         y += Math.sin(randomAngle) * stepSize;
 
         // Ensure the image stays within the canvas boundaries
-        x = Math.min(Math.max(x, 0), canvas.width - img.width);
-        y = Math.min(Math.max(y, 0), canvas.height - img.height);
+        x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
+        y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
     }
 
     // Function to animate the image
@@ -69,6 +77,7 @@
         requestAnimationFrame(animate); // Request the next frame
     }
 </script>
+
 
 </body>
 </html>
