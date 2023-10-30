@@ -61,7 +61,7 @@
     const img2 = new Image();
     img2.src = 'orangekitty.png';
     const bgImage = new Image();
-    bgImage.src = 'background.png';  // Replace with your background image path
+    bgImage.src = 'background.png';
 
     // Scaling the image
     let scaledWidth, scaledHeight, scaledWidth2, scaledHeight2;
@@ -89,11 +89,21 @@
     }
 
     function drawImage() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);  // Draw the background image
-        ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
-        ctx.drawImage(img2, u, v, scaledWidth2, scaledHeight2);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Check the click count
+    if (clickCount > 10) {
+        const altBgImage = new Image();
+        altBgImage.src = 'surprise.png';
+        ctx.drawImage(altBgImage, 0, 0, canvas.width, canvas.height);
+    } else {
+        ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);  // Draw the default background image
     }
+    
+    ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+    ctx.drawImage(img2, u, v, scaledWidth2, scaledHeight2);
+    }
+
 
 
     function updatePosition() {
