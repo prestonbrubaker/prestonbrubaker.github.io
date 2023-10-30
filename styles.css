@@ -7,7 +7,7 @@ body {
 
 header {
     background-color: #000000;
-    color: white;
+    color: black;
     text-align: center;
     padding: 1em 0;
 }
@@ -40,7 +40,7 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #fc4605;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
