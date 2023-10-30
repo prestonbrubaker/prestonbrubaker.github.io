@@ -30,21 +30,26 @@
     const canvas = document.getElementById('brownianCanvas');
     const ctx = canvas.getContext('2d');
     
-    // Initial position of the rectangle
+    // Initial position of the image
     let x = canvas.width / 2;
     let y = canvas.height / 2;
     
-    // Size of the rectangle
-    const width = 50;
-    const height = 30;
+    // Load the image
+    const img = new Image();
+    img.src = 'image.jpg';  // Replace 'image.jpg' with the path to your image if it's different
 
-    // Function to draw the rectangle at the current position
-    function drawRectangle() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        ctx.fillRect(x, y, width, height); // Draw the rectangle
+    img.onload = function() {
+        // Start the animation once the image is loaded
+        animate();
     }
 
-    // Function to update the rectangle's position based on Brownian motion
+    // Function to draw the image at the current position
+    function drawImage() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+        ctx.drawImage(img, x, y); // Draw the image
+    }
+
+    // Function to update the image's position based on Brownian motion
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI; // Random direction
         const stepSize = 2; // Adjust this for larger/smaller steps
@@ -52,19 +57,18 @@
         x += Math.cos(randomAngle) * stepSize;
         y += Math.sin(randomAngle) * stepSize;
 
-        // Ensure the rectangle stays within the canvas boundaries
-        x = Math.min(Math.max(x, 0), canvas.width - width);
-        y = Math.min(Math.max(y, 0), canvas.height - height);
+        // Ensure the image stays within the canvas boundaries
+        x = Math.min(Math.max(x, 0), canvas.width - img.width);
+        y = Math.min(Math.max(y, 0), canvas.height - img.height);
     }
 
-    // Function to animate the rectangle
+    // Function to animate the image
     function animate() {
-        drawRectangle();
+        drawImage();
         updatePosition();
         requestAnimationFrame(animate); // Request the next frame
     }
-
-    animate(); // Start the animation
 </script>
+
 </body>
 </html>
