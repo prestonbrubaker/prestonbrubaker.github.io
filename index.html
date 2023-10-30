@@ -59,6 +59,14 @@
         animate();
     }
 
+    img2.onload = function() {
+        // Define the scaled dimensions for the second image
+        scaledWidth2 = img2.width * 0.1;
+        scaledHeight2 = img2.height * 0.1;
+        imagesLoaded++;
+        if (imagesLoaded === 2) animate();
+    }
+
     // Function to draw the image at the current position with scaled dimensions
     function drawImage() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
