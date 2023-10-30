@@ -18,7 +18,7 @@
     </nav>
     <main>
         <section>
-            <h2>About This Site</h2>
+            <h2>About This Jawn</h2>
             <p>Bruh moment... kinda epic tho ngl.</p>
             <canvas id="brownianCanvas" width="800" height="400" style="border:5px solid #FA0;"></canvas>
         </section>
@@ -35,28 +35,25 @@
     let y = canvas.height / 2;
     let u = canvas.width * 3 / 4;
     let v = canvas.width / 2;
-    
-    // Load the image
+
+    // Scaling the image
+    let scaledWidth, scaledHeight, scaledWidth2, scaledHeight2;
+
+    // Load the images
     const img = new Image();
     img.src = 'grey_cat.png';
-
     const img2 = new Image();
     img2.src = 'orange_cat.png';
 
-    // Scaling the image
-    let scaledWidth;
-    let scaledHeight;
+    // Counter for loaded images
+    let imagesLoaded = 0;
 
     img.onload = function() {
-        // Define the scaled dimensions (e.g., scaling to half of the original size)
+        // Define the scaled dimensions for the first image
         scaledWidth = img.width * 0.1;
         scaledHeight = img.height * 0.1;
-
-        scaledWidth2 = img2.width * 0.1;
-        scaledHeight2 = img2.height * 0.1;
-
-        // Start the animation once the image is loaded
-        animate();
+        imagesLoaded++;
+        if (imagesLoaded === 2) animate();
     }
 
     img2.onload = function() {
@@ -67,41 +64,32 @@
         if (imagesLoaded === 2) animate();
     }
 
-    // Function to draw the image at the current position with scaled dimensions
     function drawImage() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        ctx.drawImage(img, x, y, scaledWidth, scaledHeight); // Draw the scaled image
-        ctx.drawImage(img2, u, v, scaledWidth2, scaledHeight2); // Draw the scaled image
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+        ctx.drawImage(img2, u, v, scaledWidth2, scaledHeight2);
     }
 
-    // Function to update the image's position based on Brownian motion
     function updatePosition() {
-        const randomAngle = Math.random() * 2 * Math.PI; // Random direction
-        const stepSize = 2; // Adjust this for larger/smaller steps
-
+        const randomAngle = Math.random() * 2 * Math.PI;
+        const stepSize = 2;
         x += Math.cos(randomAngle) * stepSize;
         y += Math.sin(randomAngle) * stepSize;
-
-        // Ensure the image stays within the canvas boundaries
         x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
         y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
 
-        const randomAngle2 = Math.random() * 2 * Math.PI; // Random direction
-        const stepSize2 = 2; // Adjust this for larger/smaller steps
-
+        const randomAngle2 = Math.random() * 2 * Math.PI;
+        const stepSize2 = 2;
         u += Math.cos(randomAngle2) * stepSize2;
-        v += Math.sin(randomAngle) * stepSize2;
-
-        // Ensure the image stays within the canvas boundaries
-        u = Math.min(Math.max(u, 0), canvas.width - scaledWidth);
-        v = Math.min(Math.max(v, 0), canvas.height - scaledHeight);
+        v += Math.sin(randomAngle2) * stepSize2;
+        u = Math.min(Math.max(u, 0), canvas.width - scaledWidth2);
+        v = Math.min(Math.max(v, 0), canvas.height - scaledHeight2);
     }
 
-    // Function to animate the image
     function animate() {
         drawImage();
         updatePosition();
-        requestAnimationFrame(animate); // Request the next frame
+        requestAnimationFrame(animate);
     }
 </script>
 
