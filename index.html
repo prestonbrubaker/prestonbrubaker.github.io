@@ -6,7 +6,7 @@
     <title>Basic Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<canvas id="brownianCanvas" width="800" height="400" style="border:1px solid #000;"></canvas>
     <header>
         <h1>Bruhhhhhhhhe</h1>
     </header>
@@ -26,5 +26,45 @@
     <footer>
         <p>Shiiii this ain't got any copyright. Honestly just cop this website lmao.</p>
     </footer>
+<script>
+    const canvas = document.getElementById('brownianCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Initial position of the rectangle
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+    
+    // Size of the rectangle
+    const width = 50;
+    const height = 30;
+
+    // Function to draw the rectangle at the current position
+    function drawRectangle() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+        ctx.fillRect(x, y, width, height); // Draw the rectangle
+    }
+
+    // Function to update the rectangle's position based on Brownian motion
+    function updatePosition() {
+        const randomAngle = Math.random() * 2 * Math.PI; // Random direction
+        const stepSize = 2; // Adjust this for larger/smaller steps
+
+        x += Math.cos(randomAngle) * stepSize;
+        y += Math.sin(randomAngle) * stepSize;
+
+        // Ensure the rectangle stays within the canvas boundaries
+        x = Math.min(Math.max(x, 0), canvas.width - width);
+        y = Math.min(Math.max(y, 0), canvas.height - height);
+    }
+
+    // Function to animate the rectangle
+    function animate() {
+        drawRectangle();
+        updatePosition();
+        requestAnimationFrame(animate); // Request the next frame
+    }
+
+    animate(); // Start the animation
+</script>
 </body>
 </html>
