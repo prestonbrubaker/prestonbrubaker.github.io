@@ -19,6 +19,7 @@
     <main>
         <section>
             <h2>About This Jawn</h2>
+            <p>Number of clicks on the canvas: <span id="clickCounter">0</span></p>
             <p>Bruh moment... kinda epic tho ngl with whatever those cats down below doing lol. Give it a look please!!!  ↓ ↓ ↓</p>
             <canvas id="brownianCanvas" width="800" height="400" style="border:5px solid #FA0;"></canvas>
         </section>
@@ -31,6 +32,16 @@
     
     const canvas = document.getElementById('brownianCanvas');
     const ctx = canvas.getContext('2d');
+
+    const canvas = document.getElementById('brownianCanvas');
+    const clickCounterEl = document.getElementById('clickCounter');
+    let clickCount = 0;
+
+    canvas.addEventListener('click', function() {
+    clickCount++;  // Increase the click count
+    clickCounterEl.textContent = clickCount;  // Update the display
+    });
+
     
     // Initial position of the images
     let x = canvas.width / 4;
