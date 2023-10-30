@@ -52,7 +52,7 @@
     // Function to update the image's position based on Brownian motion
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI; // Random direction
-        const stepSize = 2; // Adjust this for larger/smaller steps
+        const stepSize = 10; // Adjust this for larger/smaller steps
 
         x += Math.cos(randomAngle) * stepSize;
         y += Math.sin(randomAngle) * stepSize;
