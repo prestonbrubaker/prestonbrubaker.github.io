@@ -19,7 +19,6 @@
     <main>
         <section>
             <h2>About This Jawn</h2>
-            <div id="visitorCounter">Visitor count: 0</div>
             <p>Bruh moment... kinda epic tho ngl with whatever those cats down below doing lol. Give it a look please!!!  ↓ ↓ ↓</p>
             <canvas id="brownianCanvas" width="800" height="400" style="border:5px solid #FA0;"></canvas>
         </section>
@@ -29,13 +28,6 @@
     </footer>
 <script>
     window.onload = function() {
-    let visitorCount = localStorage.getItem('visitorCount') || 0;
-    visitorCount++;
-    localStorage.setItem('visitorCount', visitorCount);
-    document.getElementById("visitorCounter").innerText = "Visitor count: " + visitorCount;
-    }
-
-    
     
     const canvas = document.getElementById('brownianCanvas');
     const ctx = canvas.getContext('2d');
