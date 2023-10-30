@@ -81,12 +81,12 @@
         const randomAngle2 = Math.random() * 2 * Math.PI; // Random direction
         const stepSize2 = 2; // Adjust this for larger/smaller steps
 
-        u += Math.cos(randomAngle) * stepSize;
-        v += Math.sin(randomAngle) * stepSize;
+        u += Math.cos(randomAngle2) * stepSize2;
+        v += Math.sin(randomAngle) * stepSize2;
 
         // Ensure the image stays within the canvas boundaries
-        u = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
-        v = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
+        u = Math.min(Math.max(u, 0), canvas.width - scaledWidth);
+        v = Math.min(Math.max(v, 0), canvas.height - scaledHeight);
     }
 
     // Function to animate the image
