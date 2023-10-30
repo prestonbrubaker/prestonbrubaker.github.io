@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: white; <!--Header Block Color-->
-    color: lime; 
+    background-color: black; <!--Header Block Color-->
+    color: orange; 
     text-align: center;
     padding: 1em 0;
 }
