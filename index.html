@@ -32,12 +32,13 @@
     
     const canvas = document.getElementById('brownianCanvas');
     const ctx = canvas.getContext('2d');
+
     const clickCounterEl = document.getElementById('clickCounter');
     let clickCount = 0;
 
     canvas.addEventListener('click', function() {
-    clickCount++;  // Increase the click count
-    clickCounterEl.textContent = clickCount;  // Update the display
+        clickCount++;  // Increase the click count
+        clickCounterEl.textContent = clickCount;  // Update the display
     });
 
     
@@ -112,8 +113,8 @@
         const stepSize2 = acc;
         uv += Math.cos(randomAngle2) * stepSize2;
         vv += Math.sin(randomAngle2) * stepSize2;
-        uv = Math.min(Math.max(uv, -5), 5);
-        vv = Math.min(Math.max(vv, -5), 5);
+        uv = Math.min(Math.max(uv, -max_speed), max_speed);
+        vv = Math.min(Math.max(vv, -max_speed), max_speed);
         u += uv;
         v += vv;
         u = Math.min(Math.max(u, 0), canvas.width - scaledWidth2);
@@ -124,6 +125,8 @@
         drawImage();
         updatePosition();
         requestAnimationFrame(animate);
+    }
+
     }
 </script>
 
