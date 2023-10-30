@@ -27,6 +27,15 @@
         <p>Shiiii this ain't got any copyright. Honestly just cop this website lmao.</p>
     </footer>
 <script>
+    window.onload = function() {
+    let visitorCount = localStorage.getItem('visitorCount') || 0;
+    visitorCount++;
+    localStorage.setItem('visitorCount', visitorCount);
+    document.getElementById("visitorCounter").innerText = "Visitor count: " + visitorCount;
+    }
+
+    
+    
     const canvas = document.getElementById('brownianCanvas');
     const ctx = canvas.getContext('2d');
     
