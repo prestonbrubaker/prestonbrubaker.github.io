@@ -78,14 +78,14 @@
 
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI;
-        const stepSize = 6;
+        const stepSize = 4;
         x += Math.cos(randomAngle) * stepSize;
         y += Math.sin(randomAngle) * stepSize;
         x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
         y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
 
         const randomAngle2 = Math.random() * 2 * Math.PI;
-        const stepSize2 = 6;
+        const stepSize2 = 4;
         u += Math.cos(randomAngle2) * stepSize2;
         v += Math.sin(randomAngle2) * stepSize2;
         u = Math.min(Math.max(u, 0), canvas.width - scaledWidth2);
