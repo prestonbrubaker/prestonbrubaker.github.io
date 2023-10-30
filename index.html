@@ -32,9 +32,13 @@
     
     // Initial position of the images
     let x = canvas.width / 4;
+    let xv = 0
     let y = canvas.height / 2;
+    let yv = 0
     let u = canvas.width * 3 / 4;
+    let uv = 0
     let v = canvas.width / 2;
+    let vv = 0
 
     // Load the images
     const img = new Image();
@@ -79,15 +83,25 @@
     function updatePosition() {
         const randomAngle = Math.random() * 2 * Math.PI;
         const stepSize = 4;
-        x += Math.cos(randomAngle) * stepSize;
-        y += Math.sin(randomAngle) * stepSize;
+
+        
+        xv += Math.cos(randomAngle) * stepSize;
+        yv += Math.sin(randomAngle) * stepSize;
+        x += xv
+        y += yv
+        xv = Math.min(Math.max(x, -5), 5);
+        yv = Math.min(Math.max(y, -5), 5);
         x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
         y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
 
         const randomAngle2 = Math.random() * 2 * Math.PI;
         const stepSize2 = 4;
-        u += Math.cos(randomAngle2) * stepSize2;
-        v += Math.sin(randomAngle2) * stepSize2;
+        uv += Math.cos(randomAngle2) * stepSize2;
+        vv += Math.sin(randomAngle2) * stepSize2;
+        u += uv
+        v += vv
+        uv = Math.min(Math.max(x, -5), 5);
+        vv = Math.min(Math.max(y, -5), 5);
         u = Math.min(Math.max(u, 0), canvas.width - scaledWidth2);
         v = Math.min(Math.max(v, 0), canvas.height - scaledHeight2);
     }
