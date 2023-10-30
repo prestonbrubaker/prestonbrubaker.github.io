@@ -13,7 +13,7 @@ header {
 }
 
 nav ul {
-    background-color: fuchia; <!-- Subheader Block Color -->
+    background-color: black; <!-- Subheader Block Color -->
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -25,7 +25,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: orange; <!--Subeader Text Color-->
+    color: orange; <!--Subeader Text Color??-->
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 3px;
