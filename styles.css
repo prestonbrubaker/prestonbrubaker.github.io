@@ -2,18 +2,18 @@ body {
     font-family: Georgia, serif;
     margin: 0;
     padding: 0;
-    background-color: orange; <!--Main Background Color-->
+    background-color: orange; /*--Main Background Color*/
 }
 
 header {
-    background-color: black; <!--Header Block Color-->
+    background-color: black; /*Header Block Color*/
     color: orange; 
     text-align: center;
     padding: 1em 0;
 }
 
 nav ul {
-    background-color: black; <!-- Subheader Block Color -->
+    background-color: black; /*Subheader Block Color*/
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -25,7 +25,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: orange; <!--Subeader Text Color??-->
+    color: orange; /*Subeader Text Color??*/
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -40,14 +40,14 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white; <!--Game Background Color-->
+    background-color: white; /*Game Background Color*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
     text-align: center;
     padding: 1em 0;
-    background-color: #000000; <!--Footer Block Color-->
+    background-color: #000000; /*Footer Block Color*/
     color: orange;
 }
 
