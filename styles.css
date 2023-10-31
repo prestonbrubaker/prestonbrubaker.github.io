@@ -2,7 +2,7 @@ body {
     font-family: Georgia, serif;
     margin: 0;
     padding: 0;
-    background-color: orange; /*--Main Background Color*/
+    background-color: white; /*--Main Background Color*/
 }
 
 header {
@@ -40,7 +40,7 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #DD6600; /*Game Background Color*/
+    background-color: #FFFFFF; /*Game Background Color*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
