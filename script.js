@@ -25,8 +25,8 @@ function updatePosition() {
     const dy = (Math.random() - 0.5) * stepSize;
 
     // Update the rectangle's position
-    rectX += dx + 50 *Math.cos(angle);
-    rectY += dy + 50 * Math.sin(angle);
+    rectX += dx + 5 *Math.cos(angle);
+    rectY += dy + 5 * Math.sin(angle);
 
     angle += 1;
 
