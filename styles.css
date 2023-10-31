@@ -61,6 +61,9 @@ footer {
 #headertext1 {
     font-family: "halloween", fallbackFont, sans-serif;
     color: orange; /* Set the color of the specific text element to white */
+    font-size: 24px; 
+}
+
 }
 
 /* Position the left image to the left side of the screen */
