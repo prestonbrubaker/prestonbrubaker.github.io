@@ -9,7 +9,7 @@ const rectWidth = 50;
 const rectHeight = 50;
 
 // Define the range of motion for the Brownian motion (e.g., 5 pixels)
-const stepSize = 5;
+const stepSize = 1;
 
 // Function to draw the rectangle at its current position
 function drawRectangle() {
@@ -25,8 +25,8 @@ function updatePosition() {
     const dy = (Math.random() - 0.5) * stepSize;
 
     // Update the rectangle's position
-    rectX += dx + 5 *Math.cos(angle);
-    rectY += dy + 5 * Math.sin(angle);
+    rectX += dx + 50 *Math.cos(angle);
+    rectY += dy + 50 * Math.sin(angle);
 
     angle += 1;
 
