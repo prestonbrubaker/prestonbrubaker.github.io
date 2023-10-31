@@ -7,7 +7,7 @@ body {
 
 header {
     background-color: black; /*Header Block Color*/
-    color: orange; 
+    color: white; 
     text-align: center;
     padding: 1em 0;
 }
@@ -48,7 +48,7 @@ footer {
     text-align: center;
     padding: 1em 0;
     background-color: #000000; /*Footer Block Color*/
-    color: orange;
+    color: white;
 }
 
 
