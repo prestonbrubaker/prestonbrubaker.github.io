@@ -61,7 +61,7 @@ footer {
 #headertext1 {
     font-family: "bones", fallbackFont, sans-serif;
     color: orange; /* Set the color of the specific text element to white */
-    font-size: 24px; 
+    font-size: 32px; 
 }
 
 }
