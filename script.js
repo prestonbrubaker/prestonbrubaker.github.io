@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 // Define the starting position and size of the rectangle
 let rectX = 200;
 let rectY = 200;
+let angle = 0;
 const rectWidth = 50;
 const rectHeight = 50;
 
@@ -24,8 +25,10 @@ function updatePosition() {
     const dy = (Math.random() - 0.5) * stepSize;
 
     // Update the rectangle's position
-    rectX += dx;
-    rectY += dy;
+    rectX += dx + 50 *Math.cos(angle);
+    rectY += dy + 50 * Math.sin(angle);
+
+    angle += 1;
 
     // Ensure the rectangle stays within the canvas boundaries
     rectX = Math.min(Math.max(0, rectX), canvas.width - rectWidth);
