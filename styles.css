@@ -63,6 +63,23 @@ footer {
     color: orange; /* Set the color of the specific text element to white */
 }
 
+/* Position the left image to the left side of the screen */
+.left-image {
+    position: absolute;
+    top: 140px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+/* Position the right image to the right side of the screen */
+.right-image {
+    position: absolute;
+    top: 140px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+}
 
 
 
