@@ -51,43 +51,4 @@ footer {
     color: orange;
 }
 
-#header1 {
-    background-color: black; /* Set the background color to dark orange */
-    color: orange; /* Set the default text color inside the header to white */
-    padding: 10px;
-    text-align: center;
-}
-
-#headertext1 {
-    font-family: "bones", fallbackFont, sans-serif;
-    color: orange; /* Set the color of the specific text element to white */
-}
-
-/* Position the left image to the left side of the screen */
-.left-image {
-    position: absolute;
-    top: 120px;
-    left: 0px;
-    width: 200px;
-    height: 200px;
-}
-
-/* Position the right image to the right side of the screen */
-.right-image {
-    position: absolute;
-    top: 120px;
-    right: 0px;
-    width: 300px;
-    height: 300px;
-}
-
-}
-
-@font-face {
-    font-family: 'bones'; /* Font Name */
-    src: url('bones.ttf') format('truetype');
-}
-
-
-
 
