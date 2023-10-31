@@ -59,7 +59,7 @@ footer {
 }
 
 #headertext1 {
-    font-family: "halloween", fallbackFont, sans-serif;
+    font-family: "bones", fallbackFont, sans-serif;
     color: orange; /* Set the color of the specific text element to white */
     font-size: 24px; 
 }
@@ -85,8 +85,8 @@ footer {
 }
 
 @font-face {
-    font-family: 'halloween'; /* Choose a name for your font */
-    src: url('halloween.ttf') format('truetype'); /* Adjust the path and format accordingly */
+    font-family: 'bones'; /* Font Name */
+    src: url('bones.ttf') format('truetype');
 }
 
 
