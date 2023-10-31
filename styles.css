@@ -59,7 +59,7 @@ footer {
 }
 
 #headertext1 {
-    font-family: "SpookyWebbie", fallbackFont, sans-serif;
+    font-family: "halloween", fallbackFont, sans-serif;
     color: orange; /* Set the color of the specific text element to white */
 }
 
@@ -82,8 +82,8 @@ footer {
 }
 
 @font-face {
-    font-family: 'SpookyWebbie'; /* Choose a name for your font */
-    src: url('SpookyWebbie-lgvxX.ttf') format('truetype'); /* Adjust the path and format accordingly */
+    font-family: 'halloween'; /* Choose a name for your font */
+    src: url('halloween.ttf') format('truetype'); /* Adjust the path and format accordingly */
 }
 
 
