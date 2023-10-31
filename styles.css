@@ -15,7 +15,7 @@ header {
 nav ul {
     background-color: black; /*Subheader Block Color*/
     list-style-type: none;
-    padding: 0;
+    padding: 10;
     display: flex;
     justify-content: center;
 }
