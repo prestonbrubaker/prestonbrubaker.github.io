@@ -71,15 +71,15 @@
     let imagesLoaded = 0;
 
     img.onload = function() {
-        scaledWidth = img.width * 0.3;
-        scaledHeight = img.height * 0.3;
+        scaledWidth = img.width * 0.1;
+        scaledHeight = img.height * 0.1;
         imagesLoaded++;
         if (imagesLoaded === 3) animate();
     }
 
     img2.onload = function() {
-        scaledWidth2 = img2.width * 0.25;
-        scaledHeight2 = img2.height * 0.25;
+        scaledWidth2 = img2.width * 0.07;
+        scaledHeight2 = img2.height * 0.07;
         imagesLoaded++;
         if (imagesLoaded === 3) animate();
     }
