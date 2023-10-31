@@ -13,10 +13,6 @@
     <header id="header1">
         <h1 id="headertext1">Preston and Willoh's Website</h1>
     </header>
-
-    <!--WILLSTER ZONE-->
-    <img class="left-image" src="spiderwebha.png" alt="Spidee">
-    <img class="right-image" src="spiderwebtest.png" alt="Spiderz">
     
     <nav>
         <ul>
@@ -28,127 +24,13 @@
     <main>
         <section>
             <h2 id="headertext2">About This Jawn</h2>
-            <p id="text1">CLICK THE CATS 1,000 TIMES FOR A NEAT SURPRISE!!!         Number of clicks: <span id="clickCounter">0</span></p>
             <p id="text2">🙏Please donate to our bitcoin wallet🙏: 1CRutQB4HYWEYU8Z2KrTiQCpyug7kPwNzh </p>
             <p id="text3">Bruh moment... kinda epic tho ngl with whatever those cats down below doing lol. Give it a look please!!!  ↓ ↓ ↓</p>
-            <canvas id="brownianCanvas" width="800" height="400" style="border:5px solid #FA0;"></canvas>
         </section>
     </main>
     <footer id="footer1">
         <p id="text4">Shiiii this ain't got any copyright. Honestly just cop this website lmao.</p>
     </footer>
-<script>
-    window.onload = function() {
-    
-    const canvas = document.getElementById('brownianCanvas');
-    const ctx = canvas.getContext('2d');
-
-    const clickCounterEl = document.getElementById('clickCounter');
-    let clickCount = 0;
-
-    canvas.addEventListener('click', function() {
-        clickCount++;  // Increase the click count
-        clickCounterEl.textContent = clickCount;  // Update the display
-    });
-
-    
-    // Initial position of the images
-    let x = canvas.width / 4;
-    let xv = 0
-    let y = canvas.height / 2;
-    let yv = 0
-    let u = canvas.width * 3 / 4;
-    let uv = 0
-    let v = canvas.height / 2;
-    let vv = 0
-
-    let max_speed = 2
-    let acc = 0.1
-
-    // Load the images
-    const img = new Image();
-    img.src = 'graykitty.png';
-    const img2 = new Image();
-    img2.src = 'orangekitty.png';
-    const bgImage = new Image();
-    bgImage.src = 'background.png';
-
-    // Scaling the image
-    let scaledWidth, scaledHeight, scaledWidth2, scaledHeight2;
-
-    // Counter for loaded images
-    let imagesLoaded = 0;
-
-    img.onload = function() {
-        scaledWidth = img.width * 0.23;
-        scaledHeight = img.height * 0.23;
-        imagesLoaded++;
-        if (imagesLoaded === 3) animate();
-    }
-
-    img2.onload = function() {
-        scaledWidth2 = img2.width * 0.2;
-        scaledHeight2 = img2.height * 0.2;
-        imagesLoaded++;
-        if (imagesLoaded === 3) animate();
-    }
-
-    bgImage.onload = function() {
-        imagesLoaded++;
-        if (imagesLoaded === 3) animate();
-    }
-
-    function drawImage() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Check the click count
-    if (clickCount >= 1000) {
-        const altBgImage = new Image();
-        altBgImage.src = 'surprise2.png';
-        ctx.drawImage(altBgImage, 0, 0, canvas.width, canvas.height);
-    } else {
-        ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);  // Draw the default background image
-    }
-    
-    ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
-    ctx.drawImage(img2, u, v, scaledWidth2, scaledHeight2);
-    }
-
-
-
-    function updatePosition() {
-        const randomAngle = Math.random() * 2 * Math.PI;
-        const stepSize = acc;
-    
-        xv += Math.cos(randomAngle) * stepSize;
-        yv += Math.sin(randomAngle) * stepSize;
-        xv = Math.min(Math.max(xv, -max_speed), max_speed);
-        yv = Math.min(Math.max(yv, -max_speed), max_speed);
-        x += xv;
-        y += yv;
-        x = Math.min(Math.max(x, 0), canvas.width - scaledWidth);
-        y = Math.min(Math.max(y, 0), canvas.height - scaledHeight);
-    
-        const randomAngle2 = Math.random() * 2 * Math.PI;
-        const stepSize2 = acc;
-        uv += Math.cos(randomAngle2) * stepSize2;
-        vv += Math.sin(randomAngle2) * stepSize2;
-        uv = Math.min(Math.max(uv, -max_speed), max_speed);
-        vv = Math.min(Math.max(vv, -max_speed), max_speed);
-        u += uv;
-        v += vv;
-        u = Math.min(Math.max(u, 0), canvas.width - scaledWidth2);
-        v = Math.min(Math.max(v, 0), canvas.height - scaledHeight2);
-    }
-
-    function animate() {
-        drawImage();
-        updatePosition();
-        requestAnimationFrame(animate);
-    }
-
-    }
-</script>
 
 
 <body></body>
