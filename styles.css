@@ -83,7 +83,7 @@ footer {
 
 @font-face {
     font-family: 'SpookyWebbie'; /* Choose a name for your font */
-    src: url('/SpookyWebbie-.ttf') format('truetype'); /* Adjust the path and format accordingly */
+    src: url('SpookyWebbie-lgvxX.ttf') format('truetype'); /* Adjust the path and format accordingly */
 }
 
 
