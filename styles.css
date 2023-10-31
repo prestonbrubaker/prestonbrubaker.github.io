@@ -50,3 +50,9 @@ footer {
     background-color: #000000; <!--Footer Block Color-->
     color: orange;
 }
+
+#header 1 {
+    background-color: #FFA500;
+    padding: 10px;
+    text-align: center;
+}
