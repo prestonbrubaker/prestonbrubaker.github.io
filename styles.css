@@ -106,3 +106,8 @@ footer {
     /* Set the footer's text color to white */
     color: white;
 }
+
+#aboutSection {
+    margin-left: 50px;  /* Adjust this value as needed */
+}
+
