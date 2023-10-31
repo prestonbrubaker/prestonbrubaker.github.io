@@ -81,6 +81,10 @@ footer {
     height: 50px;
 }
 
+@font-face {
+    font-family: 'SpookyWebbie'; /* Choose a name for your font */
+    src: url('/SpookyWebbie-.ttf') format('truetype'); /* Adjust the path and format accordingly */
+}
 
 
 
