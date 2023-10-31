@@ -52,15 +52,17 @@ footer {
 }
 
 #header1 {
-    color: red;
+    background-color: darkorange; /* Set the background color to dark orange */
+    color: white; /* Set the default text color inside the header to white */
     padding: 10px;
     text-align: center;
 }
 
-#headertext1{
+#headertext1 {
     font-family: "Comic Sans MS", sans-serif;
-    text-color: #FFAA00;
+    color: white; /* Set the color of the specific text element to white */
 }
+
 
 
 
