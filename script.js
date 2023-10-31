@@ -28,7 +28,7 @@ function updatePosition() {
     rectX += dx + 200 *Math.cos(angle);
     rectY += dy + 200 * Math.sin(angle);
 
-    angle += 1;
+    angle += .1;
 
     // Ensure the rectangle stays within the canvas boundaries
     rectX = Math.min(Math.max(0, rectX), canvas.width - rectWidth);
