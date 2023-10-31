@@ -63,9 +63,9 @@
 
     // Load the images
     const img = new Image();
-    img.src = 'grey_cat.png';
+    img.src = 'graykitty.png';
     const img2 = new Image();
-    img2.src = 'orange_cat.png';
+    img2.src = 'orangekitty.png';
     const bgImage = new Image();
     bgImage.src = 'background.png';
 
@@ -76,8 +76,8 @@
     let imagesLoaded = 0;
 
     img.onload = function() {
-        scaledWidth = img.width * 0.1;
-        scaledHeight = img.height * 0.1;
+        scaledWidth = img.width * 0.5;
+        scaledHeight = img.height * 0.5;
         imagesLoaded++;
         if (imagesLoaded === 3) animate();
     }
