@@ -52,8 +52,8 @@ nav ul li {
 
 /* Styles for the links in the navigation list */
 nav ul li a {
-    /* Set the link text color to orange */
-    color: orange;
+    /* Set the link text color to white */
+    color: white;
     
     /* Remove the default underline from the link */
     text-decoration: none;
