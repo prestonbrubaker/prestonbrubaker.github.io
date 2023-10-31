@@ -15,7 +15,7 @@ function drawCircle() {
         ctx.fill();
         ctx.stroke();
         ctx.fillStyle = '#00FF00'; // Set the fill color to red
-        ctx.fillrect(200, 200, 50, 50);
+        ctx.fillRect(200, 200, 50, 50);
     }
 }
 
