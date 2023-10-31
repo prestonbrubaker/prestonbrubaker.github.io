@@ -1,54 +1,108 @@
+/* Body Styles */
 body {
+    /* Set the font for the entire webpage to Georgia, with a fallback to the generic serif font if Georgia is unavailable */
     font-family: Georgia, serif;
+    
+    /* Remove any default margin and padding */
     margin: 0;
     padding: 0;
-    background-color: white; /*--Main Background Color*/
-}
-
-header {
-    background-color: black; /*Header Block Color*/
-    color: white; 
-    text-align: center;
-    padding: 1em 0;
-}
-
-nav ul {
-    background-color: black; /*Subheader Block Color*/
-    list-style-type: none;
-    padding: 10;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 25px;
-}
-
-nav ul li a {
-    color: orange; /*Subeader Text Color??*/
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
+    
+    /* Set the main background color of the page */
     background-color: white;
 }
 
+/* Header Styles */
+header {
+    /* Set the header's background color to black */
+    background-color: black;
+    
+    /* Set the header's text color to white */
+    color: white; 
+    
+    /* Center the text inside the header */
+    text-align: center;
+    
+    /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
+    padding: 1em 0;
+}
+
+/* Navigation Styles */
+nav ul {
+    /* Set the background color of the navigation list to black */
+    background-color: black;
+    
+    /* Remove bullet points from the list */
+    list-style-type: none;
+    
+    /* The padding value seems incorrect, but it's intended to add padding to the navigation list */
+    padding: 10;
+    
+    /* Display the list items in a row */
+    display: flex;
+    
+    /* Center the list items horizontally */
+    justify-content: center;
+}
+
+/* Styles for each list item in the navigation */
+nav ul li {
+    /* Add margin to the left and right of each list item (25px), and no margin to the top and bottom (0) */
+    margin: 0 25px;
+}
+
+/* Styles for the links in the navigation list */
+nav ul li a {
+    /* Set the link text color to orange */
+    color: orange;
+    
+    /* Remove the default underline from the link */
+    text-decoration: none;
+    
+    /* Add padding around each link for better clickability */
+    padding: 5px 10px;
+    
+    /* Round the corners of the link */
+    border-radius: 10px;
+    
+    /* Add a smooth transition effect when changing the link's background color */
+    transition: background-color 0.3s;
+}
+
+/* Styles for the links when hovered upon */
+nav ul li a:hover {
+    /* Change the link's background color to white when hovered */
+    background-color: white;
+}
+
+/* Main Content Styles */
 main {
+    /* Limit the width of the main content to 800px */
     max-width: 800px;
+    
+    /* Center the main content horizontally and add margin to the top and bottom (20px) */
     margin: 20px auto;
+    
+    /* Add padding inside the main content */
     padding: 20px;
-    background-color: #FFFFFF; /*Game Background Color*/
+    
+    /* Set the background color of the main content to white */
+    background-color: #FFFFFF;
+    
+    /* Add a subtle shadow around the main content */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer Styles */
 footer {
+    /* Center the text inside the footer */
     text-align: center;
+    
+    /* Add padding to the top and bottom of the footer (1em), and no padding to the left and right (0) */
     padding: 1em 0;
-    background-color: #000000; /*Footer Block Color*/
+    
+    /* Set the footer's background color to black */
+    background-color: #000000;
+    
+    /* Set the footer's text color to white */
     color: white;
 }
-
-
