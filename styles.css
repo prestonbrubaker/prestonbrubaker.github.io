@@ -18,6 +18,9 @@ body {
 
 /* Header Styles */
 header {
+    /* Set the headers font styles */
+    font-family: 'funky', sans-serif;
+
     /* Set the header's background color to black */
     background-color: black;
     
