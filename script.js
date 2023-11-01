@@ -83,4 +83,39 @@ function tick() {
     pA = pA_temp;
 }
 
+function setupCanvasClickHandler() {
+    c.addEventListener('click', function(event) {
+        // Calculate the canvas offset on the page
+        var rect = c.getBoundingClientRect();
+
+        // Get the mouse position within the canvas
+        var mouseX = event.clientX - rect.left;
+        var mouseY = event.clientY - rect.top;
+
+        // Convert the mouse position to array indices
+        var arrayX = Math.floor(mouseX / pixS);
+        var arrayY = Math.floor(mouseY / pixS);
+
+        // Ensure the indices are within the bounds of the pA array
+        if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
+            handleClick(arrayX, arrayY);
+        }
+    });
+}
+
+function handleClick(x, y) {
+    // You can add logic here to change the state of the clicked cell in pA
+    console.log('Clicked on pA at:', x, y);
+
+    // Example: Toggle between 'powder' and 'air'
+    pA[y][x] = pA[y][x] === 'air' ? 'powder' : 'air';
+
+    // Update the canvas immediately to reflect the change
+    tick();
+}
+
+// Call this function once to set up the event listener
+setupCanvasClickHandler();
+
+
 setInterval(tick, tickS);
