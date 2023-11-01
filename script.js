@@ -118,10 +118,10 @@ function tick() {
     }
 
     // allow elements to move through the bottom to the top
-    for(var x = 0; x < pCX - 1; x++) {
-        if((pA[x][pCY - 1] == 'water' || pA[x][pCY - 1] == 'powder' ) && pA[x][0] == 'air'){
-            pA_temp[x][0] = pA[x][pCY - 1]
-            pA_temp[x][pCY - 1] = 'air'
+    for(var x = 0; x < pCX; x++) {
+        if((pA[pCY - 1][x] == 'water' || pA[pCY - 1][x] == 'powder' ) && pA[0][x] == 'air'){
+            pA_temp[0][x] = pA[pCY - 1][x]
+            pA_temp[pCY - 1][x] = 'air'
         }
 
     }
@@ -175,6 +175,10 @@ function drawElementAtMouse(event) {
         // Update the canvas immediately to reflect the change
         tick();
     }
+}
+
+function set_element(element){
+    penE = element
 }
 
 // Call this function once to set up the event listener
