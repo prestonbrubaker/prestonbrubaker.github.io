@@ -15,12 +15,13 @@ var pA = new Array(pCY);
 
 var elHues = {
     'air' : "#AAAAAA", //Grey for air
-    'powder': "#000000", // Black for powder
-    'block': "#8B4513"   // Brown for block
+    'powder': "#8B4513", // Brown for powder
+    'block': "#000000",   // Black for block
+    'water': "#0000FF"      // blue for water
 };
 
 var penS = 3;
-var penE = 'powder';
+var penE = 'water';
 
 var tickS = 10;
 
@@ -65,15 +66,29 @@ function tick() {
 
     // Game logic and physics for elements
 
-    // Powder falling
+    // falling
     for (var y = 1; y < pCY; y++) {
         for(var x = 0; x < pCX; x++) {
-            if(pA[y][x] == 'air' && pA[y - 1][x] == 'powder'){
-                pA_temp[y][x] = 'powder'
+            if(pA[y][x] == 'air' && (pA[y - 1][x] == 'powder' || pA[y - 1][x] == 'water')){
+                pA_temp[y][x] = pA_temp[y - 1][x]
                 pA_temp[y - 1][x] = 'air'
             }
         }
 
+    }
+
+    // water settling
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 1; x < pCX - 1; x++) {
+            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x - 1] == 'air' && pA_temp[y][x - 1] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x - 1] = 'water'
+            }
+            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x + 1] == 'air' && pA_temp[y][x + 1] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x + 1] = 'water'
+            }
+        }
     }
     
     // Rest of the tick function
@@ -107,8 +122,8 @@ function handleClick(x, y) {
     // You can add logic here to change the state of the clicked cell in pA
     console.log('Clicked on pA at:', x, y);
 
-    // Example: Toggle between 'powder' and 'air'
-    pA[y][x] = pA[y][x] === 'air' ? 'powder' : 'air';
+    // Set to pen element
+    pA[y][x] = penE;
 
     // Update the canvas immediately to reflect the change
     tick();
