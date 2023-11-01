@@ -14,6 +14,7 @@ var pCY = Math.floor(maxH / pixS);
 var pA = new Array(pCY);
 
 var elHues = {
+    'air' : "#AAAAAA", //Grey for air
     'powder': "#000000", // Black for powder
     'block': "#8B4513"   // Brown for block
 };
