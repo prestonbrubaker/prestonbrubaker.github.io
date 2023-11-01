@@ -44,6 +44,8 @@ pA[Math.floor(pCY / 2)][Math.floor(pCX / 2)] = 'powder';
 
 // The tick function to draw the elements on the canvas
 function tick() {
+    // Create a temporary copy of the particle array for updates
+    var pA_temp = JSON.parse(JSON.stringify(pA));
     // Clear and fill background
     ctx.clearRect(minW, minH, maxW, maxH);
     ctx.fillStyle = bgHue;
@@ -73,7 +75,12 @@ function tick() {
         }
 
     }
-    // Rest of the tick function would go here
+    
+    // Rest of the tick function
+
+    
+    // Assign the updated temporary array back to pA
+    pA = pA_temp;
 }
 
 setInterval(tick, tickS);
