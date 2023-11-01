@@ -14,11 +14,12 @@ var pCY = Math.floor(maxH / pixS);
 var pA = new Array(pCY);
 
 var elHues = {
-    'air' : "#AAAAAA", //Grey for air
-    'powder': "#8B4513", // Brown for powder
-    'block': "#000000",   // Black for block
-    'water': "#0000FF",      // Blue for water
-    'gas': "#FFFF00"        // Yellow for gas
+    'air' : "#AAAAAA",      //Grey for air
+    'powder': "#8B4513",    // Brown for powder
+    'block': "#000000",     // Black for block
+    'water': "#0000FF",     // Blue for water
+    'gas': "#FFFF00",       // Yellow for gas
+    'fire' : "#FF0000"      // Red for fire
 };
 
 var penS = 3;
@@ -116,6 +117,46 @@ function tick() {
             }
         }
     }
+
+    // fire moving
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 1; x < pCX - 1; x++) {
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && pA[y][x - 1] == 'air' && pA_temp[y][x - 1] == 'air' && Math.random() < .05){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x - 1] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && pA[y][x + 1] == 'air' && pA_temp[y][x + 1] == 'air' && Math.random() < .05){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x + 1] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && pA[y - 1][x] == 'air' && pA_temp[y - 1][x] == 'air' && Math.random() < .02){
+                pA_temp[y][x] = 'air'
+                pA_temp[y - 1][x] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && Math.random() < 0.003){
+                pA_temp[y][x] = 'air'
+            }
+        }
+    }
+
+    // fire overtaking gas or powder
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 1; x < pCX - 1; x++) {
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < .9 || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < .03)){
+                pA_temp[y][x - 1] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < .9 || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < .03)){
+                pA_temp[y][x + 1] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < .9 || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < .03)){
+                pA_temp[y - 1][x] = 'fire'
+            }
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < .9 || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < .03)){
+                pA_temp[y + 1][x] = 'fire'
+            }
+        }
+    }
+    
 
     // allow elements to move through the bottom to the top
     for(var x = 0; x < pCX; x++) {
