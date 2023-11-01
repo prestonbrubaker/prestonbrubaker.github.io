@@ -44,7 +44,7 @@ nav ul {
     list-style-type: none;
     
     /* The padding value seems incorrect, but it's intended to add padding to the navigation list */
-    padding: 10;
+    padding: 10px;
     
     /* Display the list items in a row */
     display: flex;
@@ -62,7 +62,8 @@ nav ul li {
 /* Styles for the links in the navigation list */
 nav ul li a {
     /* Set the link text color to white */
-    color: white;
+    background-color: white;
+    color: black;
     
     /* Remove the default underline from the link */
     text-decoration: none;
