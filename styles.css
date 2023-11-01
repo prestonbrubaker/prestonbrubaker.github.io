@@ -19,8 +19,8 @@ header {
     /* Set the header's text color to white */
     color: white; 
     
-    /* Center the text inside the header */
-    text-align: center;
+    /* Left align the text inside the header */
+    text-align: left;
     
     /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
     padding: 1em 0;
