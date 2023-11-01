@@ -4,13 +4,13 @@ var ctx = c.getContext("2d");
 // Display settings
 var minW = 0;
 var minH = 0;
-var maxW = canvas1.width;
-var maxH = canvas1.height;
+var maxW = canvas1.width;   //width is 600 pixels
+var maxH = canvas1.height;   //height is 600 pixels
 var bgHue = "#777777";
 
-var pixS = 5;
-var pCX = Math.floor(maxW / pixS);
-var pCY = Math.floor(maxH / pixS);
+var pixS = 6;
+var pCX = Math.floor(maxW / pixS);  //100
+var pCY = Math.floor(maxH / pixS);  //100
 var pA = new Array(pCY);
 
 var elHues = {
@@ -27,27 +27,91 @@ var penE = 'water';
 
 var tickS = 10;
 
-// Initialize 2D array
-for (var i = 0; i < pCY; i++) {
-    pA[i] = new Array(pCX).fill('air');
-}
-pA_temp = pA
 
-// Set border elements with blocks
-for (var x = 0; x < pCX; x++) {
-    pA[pCY - 1][x] = 'block';
-    pA[0][x] = 'block';
-}
-for (var y = 0; y < pCY; y++) {
-    pA[y][0] = 'block';
-    pA[y][pCX - 1] = 'block';
+function normal_setup(){
+
+    // Initialize 2D array
+    for (var i = 0; i < pCY; i++) {
+        pA[i] = new Array(pCX).fill('air');
+    }
+    pA_temp = pA
+
+    // Set border elements with blocks
+    for (var x = 0; x < pCX; x++) {
+        pA[pCY - 1][x] = 'block';
+        pA[0][x] = 'block';
+    }
+    for (var y = 0; y < pCY; y++) {
+        pA[y][0] = 'block';
+        pA[y][pCX - 1] = 'block';
+    }
+
+    // Test by adding elements
+    pA[Math.floor(pCY / 2)][Math.floor(pCX / 2)] = 'powder';
+    pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2)] = 'water';
+    pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2) - 1] = 'water';
+    pA[Math.floor(pCY / 2) + 6][Math.floor(pCX / 2)] = 'gas';
+
 }
 
-// Test by adding elements
-pA[Math.floor(pCY / 2)][Math.floor(pCX / 2)] = 'powder';
-pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2)] = 'water';
-pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2) - 1] = 'water';
-pA[Math.floor(pCY / 2) + 6][Math.floor(pCX / 2)] = 'gas';
+
+
+function manual_setup(){
+    // Reset the array to all 'air'
+    for (var i = 0; i < pCY; i++) {
+        pA[i] = new Array(pCX).fill('air');
+    }
+
+    // Set border elements with blocks
+    for (var x = 0; x < pCX; x++) {
+        pA[pCY - 1][x] = 'block';
+        pA[0][x] = 'block';
+    }
+    for (var y = 0; y < pCY; y++) {
+        pA[y][0] = 'block';
+        pA[y][pCX - 1] = 'block';
+    }
+
+    // Create a pattern
+    // A hill of powder
+    for (var y = 30; y < 40; y++) {
+        for (var x = 20; x < 80; x++) {
+            if (x >= 50 - (y - 30) && x <= 50 + (y - 30)) {
+                pA[y][x] = 'powder';
+            }
+        }
+    }
+
+    // A pool of water at the bottom
+    for (var y = 80; y < 90; y++) {
+        for (var x = 25; x < 75; x++) {
+            pA[y][x] = 'water';
+        }
+    }
+
+    // A cloud of gas at the top
+    for (var y = 10; y < 15; y++) {
+        for (var x = 40; x < 60; x++) {
+            pA[y][x] = 'gas';
+        }
+    }
+
+    // A line of fire above the powder
+    for (var x = 20; x < 80; x++) {
+        pA[29][x] = 'fire';
+    }
+}
+
+
+
+
+
+
+
+
+
+//normal_setup();
+manual_setup();
 
 // The tick function to draw the elements on the canvas
 function tick() {
@@ -229,15 +293,20 @@ function set_element(element){
 function make_gas_and_fire(){
     for (var y = 1; y < pCY - 1; y++) {
         for(var x = 1; x < pCX - 1; x++) {
-            if(Math.random() < 0.00001){
-                pA_temp[y][x] = 'gas'
+            if(pA[y][x] == 'air' && pA_temp[y][x] == 'air'){
+                if(Math.random() < 0.00001){
+                    pA_temp[y][x] = 'gas'
+                }
+                if(Math.random() < 0.00000001){
+                    pA_temp[y][x] = 'fire'
+                }
             }
-            if(Math.random() < 0.00000001){
-                pA_temp[y][x] = 'fire'
-            }
+            
         }
     }
 }
+
+
 
 // Call this function once to set up the event listener
 setupCanvasClickHandler();
