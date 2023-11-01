@@ -8,7 +8,7 @@ var maxW = canvas1.width;
 var maxH = canvas1.height;
 var bgHue = "#777777";
 
-var pixS = 2.5;
+var pixS = 5;
 var pCX = Math.floor(maxW / pixS);
 var pCY = Math.floor(maxH / pixS);
 var pA = new Array(pCY);
