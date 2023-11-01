@@ -69,8 +69,8 @@ function tick() {
     for (var y = 1; y < pCY; y++) {
         for(var x = 0; x < pCX; x++) {
             if(pA[y][x] == 'air' && pA[y - 1][x] == 'powder'){
-                pA[y][x] = 'powder'
-                pA[y - 1][x] = 'air'
+                pA_temp[y][x] = 'powder'
+                pA_temp[y - 1][x] = 'air'
             }
         }
 
