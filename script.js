@@ -31,6 +31,7 @@ var tickS = 10;
 for (var i = 0; i < pCY; i++) {
     pA[i] = new Array(pCX).fill('air');
 }
+pA_temp = pA
 
 // Set border elements with blocks
 for (var x = 0; x < pCX; x++) {
@@ -51,7 +52,7 @@ pA[Math.floor(pCY / 2) + 6][Math.floor(pCX / 2)] = 'gas';
 // The tick function to draw the elements on the canvas
 function tick() {
     // Create a temporary copy of the particle array for updates
-    var pA_temp = JSON.parse(JSON.stringify(pA));
+    pA_temp = JSON.parse(JSON.stringify(pA));
     // Clear and fill background
     ctx.clearRect(minW, minH, maxW, maxH);
     ctx.fillStyle = bgHue;
@@ -170,6 +171,9 @@ function tick() {
     // Rest of the tick function
 
     
+    make_gas_and_fire()
+    
+    
     // Assign the updated temporary array back to pA
     pA = pA_temp;
 }
@@ -220,6 +224,19 @@ function drawElementAtMouse(event) {
 
 function set_element(element){
     penE = element
+}
+
+function make_gas_and_fire(){
+    for (var y = 1; y < pCY - 1; y++) {
+        for(var x = 1; x < pCX - 1; x++) {
+            if(Math.random() < 0.00001){
+                pA_temp[y][x] = 'gas'
+            }
+            if(Math.random() < 0.0000001){
+                pA_temp[y][x] = 'fire'
+            }
+        }
+    }
 }
 
 // Call this function once to set up the event listener
