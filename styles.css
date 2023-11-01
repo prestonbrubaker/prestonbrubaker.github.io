@@ -13,7 +13,7 @@ body {
     padding: 0;
     
     /* Set the main background color of the page */
-    background-color: white;
+    background-color: black;
 }
 
 /* Header Styles */
@@ -27,9 +27,8 @@ header {
     /* Set the header's text color to white */
     color: white; 
     
-    /* Left align the text inside the header */
-    text-align: left;
-    padding-left: 10px;
+    /* Center the text inside the header */
+    text-align: center;
     
     /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
     padding: 1em 0;
@@ -44,7 +43,7 @@ nav ul {
     list-style-type: none;
     
     /* The padding value seems incorrect, but it's intended to add padding to the navigation list */
-    padding: 10px;
+    padding: 0;
     
     /* Display the list items in a row */
     display: flex;
