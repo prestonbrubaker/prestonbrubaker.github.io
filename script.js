@@ -232,7 +232,7 @@ function make_gas_and_fire(){
             if(Math.random() < 0.00001){
                 pA_temp[y][x] = 'gas'
             }
-            if(Math.random() < 0.0000001){
+            if(Math.random() < 0.00000001){
                 pA_temp[y][x] = 'fire'
             }
         }
