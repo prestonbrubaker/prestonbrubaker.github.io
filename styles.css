@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'funky'; /* Choose a name for your font */
+    src: url('FunkyFont.ttf') format('truetype'); /* Adjust the path and format accordingly */
+}
+
 /* Body Styles */
 body {
     /* Set the font for the entire webpage to Georgia, with a fallback to the generic serif font if Georgia is unavailable */
