@@ -25,7 +25,7 @@ var tickS = 10;
 
 // Initialize 2D array
 for (var i = 0; i < pCY; i++) {
-    pA[i] = new Array(pCX).fill(null);
+    pA[i] = new Array(pCX).fill('air');
 }
 
 // Set border elements with blocks
@@ -61,7 +61,15 @@ function tick() {
     }
 
     // Implementing game logic and physics for elements would go here
+    for (var y = 1; y < pCY; y++) {
+        for(var x = 0; x < pCY; x++) {
+            if(pA[y][x] == 'air' && pA[y - 1][x] == 'powder'){
+                pA[y][x] == 'powder'
+                pA[y - 1][x] == 'air'
+            }
+        }
 
+    }
     // Rest of the tick function would go here
 }
 
