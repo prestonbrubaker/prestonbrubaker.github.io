@@ -117,6 +117,14 @@ function tick() {
         }
     }
 
+    // allow elements to move through the bottom to the top
+    for(var x = 0; x < pCX - 1; x++) {
+        if((pA[x][pCY - 1] == 'water' || pA[x][pCY - 1] == 'powder' ) && pA[x][0] == 'air'){
+            pA_temp[x][0] = pA[x][pCY - 1]
+            pA_temp[x][pCY - 1] = 'air'
+        }
+
+    }
 
     // Rest of the tick function
 
