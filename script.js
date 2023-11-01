@@ -17,7 +17,8 @@ var elHues = {
     'air' : "#AAAAAA", //Grey for air
     'powder': "#8B4513", // Brown for powder
     'block': "#000000",   // Black for block
-    'water': "#0000FF"      // blue for water
+    'water': "#0000FF",      // Blue for water
+    'gas': "#FFFF00"        // Yellow for gas
 };
 
 var penS = 3;
@@ -40,8 +41,11 @@ for (var y = 0; y < pCY; y++) {
     pA[y][pCX - 1] = 'block';
 }
 
-// Add a single block of powder to show the game is working
+// Test by adding elements
 pA[Math.floor(pCY / 2)][Math.floor(pCX / 2)] = 'powder';
+pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2)] = 'water';
+pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2) - 1] = 'water';
+pA[Math.floor(pCY / 2) + 6][Math.floor(pCX / 2)] = 'gas';
 
 // The tick function to draw the elements on the canvas
 function tick() {
@@ -90,7 +94,30 @@ function tick() {
             }
         }
     }
-    
+
+    // gas moving
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 1; x < pCX - 1; x++) {
+            if(pA[y][x] == 'gas' && pA_temp[y][x] == 'gas' && pA[y][x - 1] == 'air' && pA_temp[y][x - 1] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x - 1] = 'gas'
+            }
+            if(pA[y][x] == 'gas' && pA_temp[y][x] == 'gas' && pA[y][x + 1] == 'air' && pA_temp[y][x + 1] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y][x + 1] = 'gas'
+            }
+            if(pA[y][x] == 'gas' && pA_temp[y][x] == 'gas' && pA[y - 1][x] == 'air' && pA_temp[y - 1][x] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y - 1][x] = 'gas'
+            }
+            if(pA[y][x] == 'gas' && pA_temp[y][x] == 'gas' && pA[y + 1][x] == 'air' && pA_temp[y + 1][x] == 'air' && Math.random() < .1){
+                pA_temp[y][x] = 'air'
+                pA_temp[y + 1][x] = 'gas'
+            }
+        }
+    }
+
+
     // Rest of the tick function
 
     
