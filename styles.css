@@ -79,8 +79,8 @@ main {
     /* Limit the width of the main content to 800px */
     max-width: 800px;
     
-    /* Center the main content leftward and add margin to the top and bottom (20px) */
-    margin: 20px left;
+    /* Center the main content and add margin to the top and bottom (20px) */
+    margin: 20px auto;
     
     /* Add padding inside the main content */
     padding: 20px;
