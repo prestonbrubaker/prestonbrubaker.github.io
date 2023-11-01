@@ -62,8 +62,7 @@ nav ul li {
 /* Styles for the links in the navigation list */
 nav ul li a {
     /* Set the link text color to white */
-    background-color: white;
-    color: black;
+    color: white;
     
     /* Remove the default underline from the link */
     text-decoration: none;
@@ -82,6 +81,7 @@ nav ul li a {
 nav ul li a:hover {
     /* Change the link's background color to white when hovered */
     background-color: white;
+    color: black;
 }
 
 /* Main Content Styles */
