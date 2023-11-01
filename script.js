@@ -88,8 +88,8 @@ function manual_setup(){
     pA[48][52] = 'block';
 
     // Add a few fire elements above the smiley face which will fall and potentially interact with other elements
-    pA[10][35] = 'fire';
-    pA[10][45] = 'fire';
+    pA[20][25] = 'fire';
+    pA[20][55] = 'fire';
 
     // A cloud of powder at the top center
     for (var y = 1; y < 5; y++) {
@@ -99,15 +99,16 @@ function manual_setup(){
     }
 
     // A pool of water at the bottom, which will loop to the top through the opening
-    for (var y = 75; y < 80; y++) {
-        for (var x = 38; x <= 42; x++) {
+    for (var y = 57; y < 80; y++) {
+        for (var x = 37; x <= 43; x++) {
             pA[y][x] = 'water';
         }
     }
 
     // Add some gas elements at the top that can be ignited by the fire
-    for (var x = 30; x <= 50; x++) {
+    for (var x = 10; x <= 70; x++) {
         pA[5][x] = 'gas';
+        pA[6][x] = 'gas';
     }
 }
 
@@ -160,16 +161,26 @@ function tick() {
 
     // water settling
     for (var y = 0; y < pCY; y++) {
-        for(var x = 1; x < pCX - 1; x++) {
+        for(var x = 0; x < pCX; x++) {
             if(pA[y][x] != 'water'){
                 continue;   // Skip if the tile is not water
             }
             
-            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x - 1] == 'air' && pA_temp[y][x - 1] == 'air' && Math.random() < .1){
+            // Randomly select a direction
+            var r2 = Math.random();
+            var direction = 'none';
+            if (r2 < .25 && x > 0 && pA_temp[y][x - 1] == 'air') {
+                direction = 'left';
+            } else if (r2 >= .25 && r2 < .5 && x < pCX - 1 && pA_temp[y][x + 1] == 'air') {
+                direction = 'right';
+            }
+
+
+            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x - 1] == 'air' && pA_temp[y][x - 1] == 'air' && direction == 'left'){
                 pA_temp[y][x] = 'air';
                 pA_temp[y][x - 1] = 'water';
             }
-            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x + 1] == 'air' && pA_temp[y][x + 1] == 'air' && Math.random() < .1){
+            if(pA[y][x] == 'water' && pA_temp[y][x] == 'water' && pA[y][x + 1] == 'air' && pA_temp[y][x + 1] == 'air' && direction == 'right'){
                 pA_temp[y][x] = 'air';
                 pA_temp[y][x + 1] = 'water';
             }
@@ -184,8 +195,8 @@ function tick() {
             }
             
             var r1 = Math.random();
-            if (r1 > 0.1) {
-                continue; // Skip the current iteration with 90% chance
+            if (r1 > 0.5) {
+                continue; // Skip the current iteration with 50%
             }
 
             // Randomly select a direction
