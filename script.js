@@ -345,8 +345,6 @@ if(pA[n]==3&&pA[n+1]==4&&pA_[n]==3&&pA_[n+1]==4){
             }
         //lightning
         
-        //concept of movement by PJ Newhart
-        
         
         if(pA[n]==6){
             
