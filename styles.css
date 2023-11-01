@@ -29,6 +29,7 @@ header {
     
     /* Left align the text inside the header */
     text-align: left;
+    padding-left: 10px;
     
     /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
     padding: 1em 0;
