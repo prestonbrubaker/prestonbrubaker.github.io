@@ -60,7 +60,9 @@ function tick() {
         }
     }
 
-    // Implementing game logic and physics for elements would go here
+    // Game logic and physics for elements
+
+    // Powder falling
     for (var y = 1; y < pCY; y++) {
         for(var x = 0; x < pCY; x++) {
             if(pA[y][x] == 'air' && pA[y - 1][x] == 'powder'){
