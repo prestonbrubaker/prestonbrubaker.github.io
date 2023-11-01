@@ -125,39 +125,53 @@ function tick() {
     pA = pA_temp;
 }
 
+var mouseIsDown = false;
+
 function setupCanvasClickHandler() {
-    c.addEventListener('click', function(event) {
-        // Calculate the canvas offset on the page
-        var rect = c.getBoundingClientRect();
+    c.addEventListener('mousedown', function(event) {
+        mouseIsDown = true;
+        drawElementAtMouse(event);
+    });
 
-        // Get the mouse position within the canvas
-        var mouseX = event.clientX - rect.left;
-        var mouseY = event.clientY - rect.top;
-
-        // Convert the mouse position to array indices
-        var arrayX = Math.floor(mouseX / pixS);
-        var arrayY = Math.floor(mouseY / pixS);
-
-        // Ensure the indices are within the bounds of the pA array
-        if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
-            handleClick(arrayX, arrayY);
+    c.addEventListener('mousemove', function(event) {
+        if (mouseIsDown) {
+            drawElementAtMouse(event);
         }
+    });
+
+    c.addEventListener('mouseup', function(event) {
+        mouseIsDown = false;
+    });
+
+    c.addEventListener('mouseleave', function(event) {
+        mouseIsDown = false;
     });
 }
 
-function handleClick(x, y) {
-    // You can add logic here to change the state of the clicked cell in pA
-    console.log('Clicked on pA at:', x, y);
+function drawElementAtMouse(event) {
+    // Calculate the canvas offset on the page
+    var rect = c.getBoundingClientRect();
 
-    // Set to pen element
-    pA[y][x] = penE;
+    // Get the mouse position within the canvas
+    var mouseX = event.clientX - rect.left;
+    var mouseY = event.clientY - rect.top;
 
-    // Update the canvas immediately to reflect the change
-    tick();
+    // Convert the mouse position to array indices
+    var arrayX = Math.floor(mouseX / pixS);
+    var arrayY = Math.floor(mouseY / pixS);
+
+    // Ensure the indices are within the bounds of the pA array
+    if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
+        // Set to pen element
+        pA[arrayY][arrayX] = penE;
+        // Update the canvas immediately to reflect the change
+        tick();
+    }
 }
 
 // Call this function once to set up the event listener
 setupCanvasClickHandler();
+
 
 
 setInterval(tick, tickS);
