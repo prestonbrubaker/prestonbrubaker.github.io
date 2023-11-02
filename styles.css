@@ -7,19 +7,6 @@ html {
     src: url('FunkyFont.ttf') format('truetype'); /* Adjust the path and format accordingly */
 }
 
-/* Body Styles */
-body {
-    /* Set the font for the entire webpage to Georgia, with a fallback to the generic serif font if Georgia is unavailable */
-    font-family: Georgia, serif;
-    
-    /* Remove any default margin and padding */
-    margin: 0;
-    padding: 0;
-    
-    /* Set the main background color of the page */
-    background-color: black;
-}
-
 /* Header Styles */
 header {
     /* Set the headers font styles */
@@ -37,6 +24,9 @@ header {
     /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
     padding: 0.75rem 0;
 }
+
+/* Body Styles */
+body {
 
 /* Navigation Styles */
 nav ul {
@@ -167,7 +157,9 @@ button {
 .gas: hover {
     background-color: ;
     color: black;
-    
+}
+
+}    
 /* Footer Styles */
 footer {
     /* Center the text inside the footer */
