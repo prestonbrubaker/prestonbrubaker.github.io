@@ -168,6 +168,10 @@ footer {
     
     /* Set the footer's text color to white */
     color: white;
+
+    .text4 {
+        color: white;
+    }
 }
     .x-button {
         display: inline-block;
