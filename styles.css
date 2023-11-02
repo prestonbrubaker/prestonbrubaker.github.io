@@ -115,7 +115,13 @@ footer {
     /* Set the footer's text color to white */
     color: white;
 
-    .twitter-button {
+    #x-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+    
+    .x-button {
         display: inline-block;
         padding: 10px 20px;
         font-size: 16px;
@@ -124,12 +130,12 @@ footer {
         cursor: pointer;
         text-decoration: none;
         color: #ffffff;
-        background-color: #1da1f2; /* Twitter blue */
-        align: 
+        background-color: black; 
     }
 
-    .twitter-button:hover {
-        background-color: #0e76a8; /* Darker blue on hover */
+    .x-button:hover {
+        background-color: white;
+        color: black    
     }
 
 }
