@@ -218,13 +218,13 @@ function tick() {
             // Randomly select a direction
             var r2 = Math.random();
             var direction = 'none';
-            if (r2 < .25 && x > 0 && pA_temp[y][x - 1] == 'air') {
+            if (r2 < .25 && x > 0 && pA_temp[y][x - 1] == 'air' && pA[y][x - 1] == 'air') {
                 direction = 'left';
-            } else if (r2 >= .25 && r2 < .5 && x < pCX - 1 && pA_temp[y][x + 1] == 'air') {
+            } else if (r2 >= .25 && r2 < .5 && x < pCX - 1 && pA_temp[y][x + 1] == 'air' && pA[y][x + 1] == 'air') {
                 direction = 'right';
-            } else if (r2 >= .5 && r2 < .75 && y > 0 && pA_temp[y - 1][x] == 'air') {
+            } else if (r2 >= .5 && r2 < .75 && y > 0 && pA_temp[y - 1][x] == 'air' && pA[y - 1][x] == 'air') {
                 direction = 'up';
-            } else if (r2 >= .75 && y < pCY - 1 && pA_temp[y + 1][x] == 'air') {
+            } else if (r2 >= .75 && y < pCY - 1 && pA_temp[y + 1][x] == 'air' && pA[y + 1][x] == 'air') {
                 direction = 'down';
             }
 
