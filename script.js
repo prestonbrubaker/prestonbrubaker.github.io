@@ -13,13 +13,17 @@ var pCX = Math.floor(maxW / pixS);  //80
 var pCY = Math.floor(maxH / pixS);  //80
 var pA = new Array(pCY);
 
+var cloneA = new Array(pCY);
+
 var elHues = {
     'air' : "#AAAAAA",      //Grey for air
     'powder': "#8B4513",    // Brown for powder
     'block': "#000000",     // Black for block
     'water': "#0000FF",     // Blue for water
     'gas': "#FFFF00",       // Yellow for gas
-    'fire' : "#FF0000"      // Red for fire
+    'fire' : "#FF0000",      // Red for fire
+    'hole' : "#00FFFF",      // cyan for hole
+    'clone' : "#00FF00"     // green for clone
 };
 
 var penS = 3;
@@ -27,12 +31,15 @@ var penE = 'water';
 
 var tickS = 10;
 
+var clone_chance = 0.01  // Chance of cloning occuring from a clone block
+
 
 function normal_setup(){
 
     // Initialize 2D array
     for (var i = 0; i < pCY; i++) {
         pA[i] = new Array(pCX).fill('air');
+        cloneA[i] = new Array(pCX).fill('air');
     }
     pA_temp = pA
 
@@ -60,6 +67,7 @@ function manual_setup(){
     // Reset the array to all 'air'
     for (var i = 0; i < pCY; i++) {
         pA[i] = new Array(pCX).fill('air');
+        cloneA[i] = new Array(pCX).fill('air');
     }
 
     // Set border elements with blocks, except for a small opening
@@ -309,6 +317,95 @@ function tick() {
             if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < .9 || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < .03)){
                 pA_temp[y + 1][x] = 'fire';
             }
+        }
+    }
+
+    // Hole taking in elements
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 0; x < pCX; x++) {
+            if(pA[y][x] != 'hole'){
+                continue;
+            }
+            
+            if(x > 0){
+                if(pA[y][x - 1] != 'air' && pA[y][x - 1] != 'hole' && pA[y][x - 1] != 'block'){
+                    pA_temp[y][x - 1] = 'air';
+                }
+            }
+            if(x < pCX - 1){
+                if(pA[y][x + 1] != 'air' && pA[y][x + 1] != 'hole' && pA[y][x + 1] != 'block'){
+                    pA_temp[y][x + 1] = 'air';
+                }
+            }
+            if(y > 0){
+                if(pA[y - 1][x] != 'air' && pA[y - 1][x] != 'hole' && pA[y - 1][x] != 'block'){
+                    pA_temp[y - 1][x] = 'air';
+                }
+            }
+            if(y < pCY - 1){
+                if(pA[y + 1][x] != 'air' && pA[y + 1][x] != 'hole' && pA[y + 1][x] != 'block'){
+                    pA_temp[y + 1][x] = 'air';
+                }
+            }
+        }
+    }
+
+    // Clone physics
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 0; x < pCX; x++) {
+            if(pA[y][x] != 'clone'){
+                cloneA[y][x] = 'air';
+                continue;
+            }
+
+            //set clone dimension if needed
+            if(cloneA[y][x] == 'air'){
+                if(x > 0){
+                    if(pA[y][x - 1] != 'air' && pA[y][x - 1] != 'hole' && pA[y][x - 1] != 'block' && pA[y][x - 1] != 'clone'){
+                        cloneA[y][x] = pA[y][x - 1]
+                    }
+                }
+                if(x < pCX - 1){
+                    if(pA[y][x + 1] != 'air' && pA[y][x + 1] != 'hole' && pA[y][x + 1] != 'block' && pA[y][x + 1] != 'clone'){
+                        cloneA[y][x] = pA[y][x + 1]
+                    }
+                }
+                if(y > 0){
+                    if(pA[y - 1][x] != 'air' && pA[y - 1][x] != 'hole' && pA[y - 1][x] != 'block' && pA[y - 1][x] != 'clone'){
+                        cloneA[y][x] = pA[y - 1][x]
+                    }
+                }
+                if(y < pCY - 1){
+                    if(pA[y + 1][x] != 'air' && pA[y + 1][x] != 'hole' && pA[y + 1][x] != 'block' && pA[y + 1][x] != 'clone'){
+                        cloneA[y][x] = pA[y + 1][x]
+                    }
+                }
+            }
+            else{   // clone
+                if(x > 0 && Math.random() < clone_chance){
+                    if(pA[y][x - 1] == 'air'){
+                        pA_temp[y][x - 1] = cloneA[y][x];
+                    }
+                }
+                if(x < pCX - 1 && Math.random() < clone_chance){
+                    if(pA[y][x + 1] == 'air'){
+                        pA_temp[y][x + 1] = cloneA[y][x];
+                    }
+                }
+                if(y > 0 && Math.random() < clone_chance){
+                    if(pA[y - 1][x] == 'air'){
+                        pA_temp[y - 1][x] = cloneA[y][x];
+                    }
+                }
+                if(y < pCY - 1 && Math.random() < clone_chance){
+                    if(pA[y + 1][x] == 'air'){
+                        pA_temp[y + 1][x] = cloneA[y][x];
+                    }
+                }
+            }
+
+
+
         }
     }
     
