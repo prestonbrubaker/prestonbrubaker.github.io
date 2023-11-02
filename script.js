@@ -152,7 +152,7 @@ function tick() {
     // falling
     for (var y = 1; y < pCY; y++) {
         for(var x = 0; x < pCX; x++) {
-            if(pA[y][x] == 'air' && (pA[y - 1][x] == 'powder' || pA[y - 1][x] == 'water')){
+            if((pA[y][x] == 'air' || pA[y][x] == 'fire' ) && (pA[y - 1][x] == 'powder' || pA[y - 1][x] == 'water')){
                 pA_temp[y][x] = pA_temp[y - 1][x];
                 pA_temp[y - 1][x] = 'air';
             }
