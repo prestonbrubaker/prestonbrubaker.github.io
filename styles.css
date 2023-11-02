@@ -114,13 +114,7 @@ footer {
     
     /* Set the footer's text color to white */
     color: white;
-
-    #x-position {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-    
+  
     .x-button {
         display: inline-block;
         padding: 10px 20px;
