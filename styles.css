@@ -36,7 +36,6 @@ header {
 
 /* Navigation Styles */
 nav ul {
-   
     /* Set the background color of the navigation list to black */
     background-color: black;
     
@@ -57,7 +56,7 @@ nav ul {
 nav ul li {
     /* Add margin to the left and right of each list item (25px), and no margin to the top and bottom (0) */
     margin: 0 25px;
-  }
+}
 
 /* Styles for the links in the navigation list */
 nav ul li a {
@@ -75,6 +74,13 @@ nav ul li a {
     
     /* Add a smooth transition effect when changing the link's background color */
     transition: background-color 0.3s;
+}
+
+/* Styles for the links when hovered upon */
+nav ul li a:hover {
+    /* Change the link's background color to white when hovered */
+    background-color: white;
+    color: black;
 }
 
 /* Main Content Styles */
