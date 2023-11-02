@@ -325,7 +325,7 @@ function tick() {
     // Rest of the tick function
 
     
-    make_gas_and_fire();
+    //make_gas_and_fire();
     
     
     // Assign the updated temporary array back to pA
