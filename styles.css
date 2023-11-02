@@ -98,11 +98,20 @@ nav ul li a {
     
     /* Styles for Ref3 */
     nav ul li.Ref3 a {
-        color: blue;
+        color: lightblue;
         font-family: 'Times New Roman', serif;
     }
     nav ul li.item3 a:hover {
-        background-color: magenta;
+        background-color: lightblue;
+        color: black;
+    }
+      /* Styles for Ref4 */
+    nav ul li.Ref3 a {
+        color: redorange;
+        font-family: 'cursive', sans-serif;
+    }
+    nav ul li.item3 a:hover {
+        background-color: redorange;
         color: black;
     }
 
