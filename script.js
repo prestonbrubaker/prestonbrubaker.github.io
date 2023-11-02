@@ -315,7 +315,7 @@ function tick() {
 
     // allow elements to move through the bottom to the top
     for(var x = 0; x < pCX; x++) {
-        if((pA[pCY - 1][x] == 'water' || pA[pCY - 1][x] == 'powder' ) && pA[0][x] == 'air'){
+        if((pA[pCY - 1][x] == 'water' || pA[pCY - 1][x] == 'powder' ) && pA[0][x] == 'air' && (pA_temp[pCY - 1][x] == 'water' || pA_temp[pCY - 1][x] == 'powder' ) && pA_temp[0][x] == 'air'){
             pA_temp[0][x] = pA[pCY - 1][x];
             pA_temp[pCY - 1][x] = 'air';
         }
