@@ -76,8 +76,9 @@ function manual_setup(){
 
     // Draw a smiley face using blocks with eyes closer together
     // Eyes
-    pA[20][35] = 'block';
-    pA[20][45] = 'block';
+    pA[10][40] = 'block';
+    pA[25][41] = 'block';
+    pA[25][39] = 'block';
     // Smile
     for (var x = 30; x <= 50; x++) {
         pA[50][x] = 'block';
@@ -93,7 +94,7 @@ function manual_setup(){
 
     // A cloud of powder at the top center
     for (var y = 1; y < 5; y++) {
-        for (var x = 38; x <= 42; x++) {
+        for (var x = 28; x <= 32; x++) {
             pA[y][x] = 'powder';
         }
     }
