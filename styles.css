@@ -159,7 +159,7 @@ footer {
         border: none;
         border-radius: 0.25rem;
         cursor: pointer;
-        background-image: url('path_to_your_image.png'); /* Add this line */
+        background-image: url('xlogowhite.png'); /* Add this line */
         background-size: cover; /* Ensure the image covers the entire button */
         background-repeat: no-repeat; /* Prevent the image from repeating */
         background-position: center; /* Center the image within the button */
