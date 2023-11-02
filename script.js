@@ -480,11 +480,11 @@ function drawElementAtMouse(event) {
         
         var bounds = penS
         for (var y = -1 * bounds; y < bounds; y++){
-            if(y < 0 || y > pCY - 1){
+            if(y + arrayY < 0 || y + arrayY > pCY - 1){
                 continue;
             }
             for (var x = -1 * bounds; x < bounds; x++){
-                if(x < 0 || x > pCX - 1){
+                if(x + arrayX < 0 || x + arrayX > pCX - 1){
                     continue;
                 }
                 pA[arrayY + y][arrayX + x] = penE;
