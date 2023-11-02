@@ -27,7 +27,7 @@ header {
 
 /* Body Styles */
 body {
-
+}
 /* Navigation Styles */
 nav ul {
     /* Set the background color of the navigation list to black */
@@ -36,7 +36,7 @@ nav ul {
     /* Remove bullet points from the list */
     list-style-type: none;
     
-    /* The padding value seems incorrect, but it's intended to add padding to the navigation list */
+    /* The padding value is set to zero*/
     padding: 0;
     
     /* Display the list items in a row */
@@ -147,16 +147,17 @@ button {
     background-color: white;
     color: cyan;
 }
-.water: hover {
+.water:hover {
     background-color: cyan;
     color: white;
 }
 .gas {
     background-color: white;
     color: black;
-.gas: hover {
-    background-color: ;
-    color: black;
+}
+.gas:hover {
+    background-color: black;
+    color: white;
 }
 
 }    
