@@ -170,12 +170,7 @@ footer {
         background-image: url('xlogo.png'); /* Optional: use a different image on hover */
         background-color: white;    
     }
-    .x-button:visited {
-        color: #ffffff;
-    }
-    .x-button:active {
-        color: #ffffff;
-    }
+
 
 
 #aboutSection {
