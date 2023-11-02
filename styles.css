@@ -36,6 +36,7 @@ header {
 
 /* Navigation Styles */
 nav ul {
+   
     /* Set the background color of the navigation list to black */
     background-color: black;
     
@@ -56,6 +57,40 @@ nav ul {
 nav ul li {
     /* Add margin to the left and right of each list item (25px), and no margin to the top and bottom (0) */
     margin: 0 25px;
+    
+    /* Base styles for all items */
+    transition: background-color 0.3s, color 0.3s, font-family 0.3s;  /* Add font-family to the transition */
+    
+    /* Styles for Item 1 */
+    nav ul li.Ref1 a {
+        color: blue;
+        font-family: 'Arial', sans-serif;
+    }
+    nav ul li.Ref1 a:hover {
+        background-color: blue;
+        color: black;
+    }
+    
+    /* Styles for Item 2 */
+    nav ul li.item2 a {
+        color: green;
+        font-family: 'Verdana', sans-serif;
+    }
+    nav ul li.item2 a:hover {
+        background-color: cyan;
+        color: black;
+    }
+    
+    /* Styles for Item 3 */
+    nav ul li.item3 a {
+        color: blue;
+        font-family: 'Times New Roman', serif;
+    }
+    nav ul li.item3 a:hover {
+        background-color: magenta;
+        color: black;
+    }
+
 }
 
 /* Styles for the links in the navigation list */
