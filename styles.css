@@ -115,7 +115,7 @@ footer {
     /* Set the footer's text color to white */
     color: white;
 
-    #x-container {
+    #x-position {
     position: fixed;
     bottom: 20px;
     right: 20px;
