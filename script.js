@@ -26,7 +26,7 @@ var elHues = {
     'clone' : "#00FF00"     // green for clone
 };
 
-var penS = 2;
+var penS = 1;
 var penE = 'water';
 
 var tickS = 10;
