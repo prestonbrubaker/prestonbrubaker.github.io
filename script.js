@@ -248,8 +248,8 @@ function tick() {
             }
 
             var r1 = Math.random();
-            if (r1 > 0.2) {
-                continue; // Skip the current iteration with 80% chance
+            if (r1 > 0.4) {
+                continue; // Skip the current iteration with 60% chance
             }
             if(r1 < 0.007) {
                 pA_temp[y][x] = 'air'; // Chance of flame dying out
@@ -297,10 +297,10 @@ function tick() {
                 continue;   // Skip if the tile is not fire
             }
             
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < .9 || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < .03)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < .9 || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < .07)){
                 pA_temp[y][x - 1] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < .9 || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < .03)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < .9 || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < .07)){
                 pA_temp[y][x + 1] = 'fire';
             }
             if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < .9 || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < .03)){
