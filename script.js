@@ -8,9 +8,9 @@ var maxW = canvas1.width;   //width is 800 pixels
 var maxH = canvas1.height;   //height is 800 pixels
 var bgHue = "#777777";
 
-var pixS = 7.5;
-var pCX = Math.floor(maxW / pixS);  //80
-var pCY = Math.floor(maxH / pixS);  //80
+var pixS = 8;
+var pCX = Math.floor(maxW / pixS);
+var pCY = Math.floor(maxH / pixS);
 var pA = new Array(pCY);
 
 var cloneA = new Array(pCY);
@@ -126,9 +126,6 @@ function manual_setup(){
         pA[6][x] = 'gas';
     }
 }
-
-
-
 
 
 
