@@ -37,7 +37,7 @@ var hole_chance = 0.01  // Chance of a hole removing a block
 
 var fire_spread_chance_gas = 1  // Chance of fire spreading to a gas particle
 
-var fire_spread_chance_powder = 0.1 // Chance of fire spreading to a powder particle
+var fire_spread_chance_powder = 0.5 // Chance of fire spreading to a powder particle
 
 
 function normal_setup(){
@@ -263,21 +263,21 @@ function tick() {
             }
 
             var r1 = Math.random();
-            if (r1 > 0.4) {
-                continue; // Skip the current iteration with 60% chance
+            if (r1 > 0.2) {
+                continue; // Skip the current iteration with 80% chance
             }
             if(r1 < 0.007) {
                 pA_temp[y][x] = 'air'; // Chance of flame dying out
             }
 
             // Randomly select a direction
-            var r2 = Math.random() * 0.9;
+            var r2 = Math.random() * 0.85;
             var direction = 'none';
             if (r2 < .25 && x > 0 && pA_temp[y][x - 1] == 'air') {
                 direction = 'left';
             } else if (r2 >= .25 && r2 < .5 && x < pCX - 1 && pA_temp[y][x + 1] == 'air') {
                 direction = 'right';
-            } else if (r2 >= .5 && r2 < .9 && y > 0 && pA_temp[y - 1][x] == 'air') {
+            } else if (r2 >= .5 && r2 < .85 && y > 0 && pA_temp[y - 1][x] == 'air') {
                 direction = 'up';
             }
 
