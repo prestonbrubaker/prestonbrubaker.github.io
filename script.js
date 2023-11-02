@@ -478,7 +478,7 @@ function drawElementAtMouse(event) {
     if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
         // Set to pen element
         
-        var bounds = penS * 0.5
+        var bounds = penS * 0.5 - 0.5
         for (var y = -1 * Math.floor(bounds); y <= Math.round(bounds); y++){
             if(y + arrayY < 0 || y + arrayY > pCY - 1){
                 continue;
