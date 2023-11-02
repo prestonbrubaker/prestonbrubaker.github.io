@@ -75,46 +75,6 @@ nav ul li a {
     
     /* Add a smooth transition effect when changing the link's background color */
     transition: background-color 0.3s;
-        
-    /* Styles for Ref1 */
-    nav ul li.Ref1 a {
-        color: cyan;
-        font-family: 'Arial', sans-serif;
-    }
-    nav ul li.Ref1 a:hover {
-        background-color: cyan;
-        color: black;
-    }
-      
-    /* Styles for Ref2 */
-    nav ul li.Ref2 a {
-        color: lime;
-        font-family: 'Verdana', sans-serif;
-    }
-    nav ul li.item2 a:hover {
-        background-color: lime;
-        color: black;
-    }
-    
-    /* Styles for Ref3 */
-    nav ul li.Ref3 a {
-        color: lightblue;
-        font-family: 'Times New Roman', serif;
-    }
-    nav ul li.item3 a:hover {
-        background-color: lightblue;
-        color: black;
-    }
-      /* Styles for Ref4 */
-    nav ul li.Ref3 a {
-        color: redorange;
-        font-family: 'cursive', sans-serif;
-    }
-    nav ul li.item3 a:hover {
-        background-color: redorange;
-        color: black;
-    }
-
 }
 
 /* Main Content Styles */
@@ -148,6 +108,24 @@ footer {
     
     /* Set the footer's text color to white */
     color: white;
+
+    .twitter-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #1da1f2; /* Twitter blue */
+        align: 
+    }
+
+    .twitter-button:hover {
+        background-color: #0e76a8; /* Darker blue on hover */
+    }
+
 }
 
 #aboutSection {
