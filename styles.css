@@ -116,6 +116,14 @@ button {
 }
 
 /* Individual button styles */
+.reset {
+    background-color: white;
+    color: black;
+}
+.reset:hover {
+    background-color: black;
+    color: white;
+}
 .air {
     background-color: white;
     color: #99CCFF;
@@ -128,17 +136,38 @@ button {
 
 .powder {
     background-color: white;
-    color: #663300;
+    color: #8B4513;
 }
 
 .powder:hover {
-    background-color: #663300;
+    background-color: #8B4513;
     color: white;
 }
 
-/* ... and so on for each button */
+.block {
+    background-color: white;
+    color: black;
+}
+.block:hover {
+    background-color: black;
+    color: white;
+}
 
-
+.water {
+    background-color: white;
+    color: cyan;
+}
+.water: hover {
+    background-color: cyan;
+    color: white;
+}
+.gas {
+    background-color: white;
+    color: black;
+.gas: hover {
+    background-color: ;
+    color: black;
+    
 /* Footer Styles */
 footer {
     /* Center the text inside the footer */
