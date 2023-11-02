@@ -26,7 +26,7 @@ var elHues = {
     'clone' : "#00FF00"     // green for clone
 };
 
-var penS = 3;
+var penS = 2;
 var penE = 'water';
 
 var tickS = 10;
@@ -160,6 +160,10 @@ function tick() {
             }
         }
     }
+    ctx.font = '16px Arial';
+    ctx.fillStyle = '#000';
+    ctx.fillText(`Element Selected: ${penE}`, 10, 30);
+    ctx.fillText(`Pen Size: ${penS}`, 10, 60)
 
     // Game logic and physics for elements
 
@@ -473,7 +477,19 @@ function drawElementAtMouse(event) {
     // Ensure the indices are within the bounds of the pA array
     if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
         // Set to pen element
-        pA[arrayY][arrayX] = penE;
+        
+        var bounds = penS
+        for (var y = -1 * bounds; y < bounds; y++){
+            if(y < 0 || y > pCY - 1){
+                continue;
+            }
+            for (var x = -1 * bounds; x < bounds; x++){
+                if(x < 0 || x > pCX - 1){
+                    continue;
+                }
+                pA[arrayY + y][arrayX + x] = penE;
+            }
+        }
         // Update the canvas immediately to reflect the change
         tick();
     }
@@ -481,6 +497,13 @@ function drawElementAtMouse(event) {
 
 function set_element(element){
     penE = element;
+    
+}
+
+function change_pen_size(change){
+    if(penS + change >= 0){
+        penS += change
+    }
 }
 
 function make_gas_and_fire(){
