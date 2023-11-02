@@ -135,6 +135,13 @@ footer {
         background-color: white;
         color: black    
     }
+    .x-button:visited {
+        color: #ffffff;
+    }
+    .x-button:active {
+        color: #ffffff;
+    }
+
 
 #aboutSection {
     margin-left: 2.5rem;  /* Adjust this value as needed */
