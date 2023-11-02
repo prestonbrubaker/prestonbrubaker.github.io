@@ -33,6 +33,12 @@ var tickS = 10;
 
 var clone_chance = 0.01  // Chance of cloning occuring from a clone block
 
+var hole_chance = 0.01  // Chance of a hole removing a block
+
+var fire_spread_chance_gas = 1  // Chance of fire spreading to a gas particle
+
+var fire_spread_chance_powder = 0.1 // Chance of fire spreading to a powder particle
+
 
 function normal_setup(){
 
@@ -305,16 +311,16 @@ function tick() {
                 continue;   // Skip if the tile is not fire
             }
             
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < .9 || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < .07)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < fire_spread_chance_powder)){
                 pA_temp[y][x - 1] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < .9 || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < .07)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < fire_spread_chance_powder)){
                 pA_temp[y][x + 1] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < .9 || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < .03)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < fire_spread_chance_powder)){
                 pA_temp[y - 1][x] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < .9 || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < .03)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < fire_spread_chance_powder)){
                 pA_temp[y + 1][x] = 'fire';
             }
         }
@@ -328,22 +334,22 @@ function tick() {
             }
             
             if(x > 0){
-                if(pA[y][x - 1] != 'air' && pA[y][x - 1] != 'hole' && pA[y][x - 1] != 'block'){
+                if(pA[y][x - 1] != 'air' && pA[y][x - 1] != 'hole' && pA[y][x - 1] != 'block' && Math.random() < hole_chance){
                     pA_temp[y][x - 1] = 'air';
                 }
             }
             if(x < pCX - 1){
-                if(pA[y][x + 1] != 'air' && pA[y][x + 1] != 'hole' && pA[y][x + 1] != 'block'){
+                if(pA[y][x + 1] != 'air' && pA[y][x + 1] != 'hole' && pA[y][x + 1] != 'block' && Math.random() < hole_chance){
                     pA_temp[y][x + 1] = 'air';
                 }
             }
             if(y > 0){
-                if(pA[y - 1][x] != 'air' && pA[y - 1][x] != 'hole' && pA[y - 1][x] != 'block'){
+                if(pA[y - 1][x] != 'air' && pA[y - 1][x] != 'hole' && pA[y - 1][x] != 'block' && Math.random() < hole_chance){
                     pA_temp[y - 1][x] = 'air';
                 }
             }
             if(y < pCY - 1){
-                if(pA[y + 1][x] != 'air' && pA[y + 1][x] != 'hole' && pA[y + 1][x] != 'block'){
+                if(pA[y + 1][x] != 'air' && pA[y + 1][x] != 'hole' && pA[y + 1][x] != 'block' && Math.random() < hole_chance){
                     pA_temp[y + 1][x] = 'air';
                 }
             }
