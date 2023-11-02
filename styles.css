@@ -1,3 +1,7 @@
+html {
+    font-size: 125%; /* This is equivalent to 20px if the browser's default font size is 16px */
+}
+
 @font-face {
     font-family: 'funky'; /* Choose a name for your font */
     src: url('FunkyFont.ttf') format('truetype'); /* Adjust the path and format accordingly */
@@ -114,7 +118,7 @@ footer {
     
     /* Set the footer's text color to white */
     color: white;
-  
+}
     .x-button {
         display: inline-block;
         padding: 10px 20px;
@@ -131,8 +135,6 @@ footer {
         background-color: white;
         color: black    
     }
-
-}
 
 #aboutSection {
     margin-left: 50px;  /* Adjust this value as needed */
