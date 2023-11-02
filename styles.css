@@ -117,12 +117,13 @@ button {
 
 /* Individual button styles */
 .air-button {
-    background-color: #a0f;
-    color: #fff;
+    background-color: white;
+    color: #FFCC00;
 }
 
 .air-button:hover {
-    background-color: #80d;
+    background-color: #FFCC00;
+    color: white;
 }
 
 .powder-button {
