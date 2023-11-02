@@ -16,7 +16,7 @@ var pA = new Array(pCY);
 var cloneA = new Array(pCY);
 
 var elHues = {
-    'air' : "#AAAAAA",      //Grey for air
+    'air' : "#99CCFF",      //Grey for air
     'powder': "#8B4513",    // Brown for powder
     'block': "#000000",     // Black for block
     'water': "#0000FF",     // Blue for water
