@@ -148,14 +148,6 @@ button {
     background-color: cyan;
     color: white;
 }
-.gas {
-    background-color: white;
-    color: black;
-}
-.gas:hover {
-    background-color: black;
-    color: white;
-}
 
 }    
 /* Footer Styles */
