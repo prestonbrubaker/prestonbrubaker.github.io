@@ -161,7 +161,7 @@ function tick() {
         }
     }
     ctx.font = '16px Arial';
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = '#F55';
     ctx.fillText(`Element Selected: ${penE}`, 10, 30);
     ctx.fillText(`Pen Size: ${penS}`, 10, 60)
 
@@ -478,18 +478,22 @@ function drawElementAtMouse(event) {
     if (arrayX >= 0 && arrayX < pCX && arrayY >= 0 && arrayY < pCY) {
         // Set to pen element
         
-        var bounds = penS
-        for (var y = -1 * bounds; y < bounds; y++){
+        var bounds = penS * 0.5
+        for (var y = -1 * Math.floor(bounds); y <= Math.round(bounds); y++){
             if(y + arrayY < 0 || y + arrayY > pCY - 1){
                 continue;
             }
-            for (var x = -1 * bounds; x < bounds; x++){
+            for (var x = -1 * Math.floor(bounds); x <= Math.round(bounds); x++){
                 if(x + arrayX < 0 || x + arrayX > pCX - 1){
                     continue;
                 }
                 pA[arrayY + y][arrayX + x] = penE;
             }
         }
+        if(bounds == 0){
+            pA[arrayY][arrayX] = penE;
+        }
+
         // Update the canvas immediately to reflect the change
         tick();
     }
