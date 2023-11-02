@@ -26,9 +26,9 @@ header {
 }
 
 body {
-    background color: black;
+    background-color: black;
 }
-
+    
 /* Navigation Styles */
 nav ul {
     /* Set the background color of the navigation list to black */
@@ -154,6 +154,7 @@ button {
 }
 
 }    
+
 /* Footer Styles */
 footer {
     /* Center the text inside the footer */
