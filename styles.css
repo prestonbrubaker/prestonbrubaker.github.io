@@ -118,21 +118,22 @@ button {
 /* Individual button styles */
 .air-button {
     background-color: white;
-    color: #FFCC00;
+    color: #99CCFF;
 }
 
 .air-button:hover {
-    background-color: #FFCC00;
+    background-color: #99CCFF;
     color: white;
 }
 
 .powder-button {
-    background-color: #fa0;
-    color: #000;
+    background-color: #white;
+    color: #663300;
 }
 
 .powder-button:hover {
-    background-color: #d80;
+    background-color: #663300;
+    color: white;
 }
 
 /* ... and so on for each button */
