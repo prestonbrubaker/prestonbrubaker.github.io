@@ -35,7 +35,7 @@ header {
     text-align: center;
     
     /* Add padding to the top and bottom of the header (1em), and no padding to the left and right (0) */
-    padding: 0.75em 0;
+    padding: 0.75rem 0;
 }
 
 /* Navigation Styles */
@@ -59,7 +59,7 @@ nav ul {
 /* Styles for each list item in the navigation */
 nav ul li {
     /* Add margin to the left and right of each list item (25px), and no margin to the top and bottom (0) */
-    margin: 0 25px;
+    margin: 1.25rem;
 }
 
 /* Styles for the links in the navigation list */
@@ -71,10 +71,10 @@ nav ul li a {
     text-decoration: none;
     
     /* Add padding around each link for better clickability */
-    padding: 5px 10px;
+    padding: 0.25rem 0.5rem;
     
     /* Round the corners of the link */
-    border-radius: 10px;
+    border-radius: 0.5rem;
     
     /* Add a smooth transition effect when changing the link's background color */
     transition: background-color 0.3s;
@@ -111,7 +111,7 @@ footer {
     text-align: center;
     
     /* Add padding to the top and bottom of the footer (1em), and no padding to the left and right (0) */
-    padding: 1em 0;
+    padding: 0.75em 0;
     
     /* Set the footer's background color to black */
     background-color: #000000;
@@ -121,10 +121,10 @@ footer {
 }
     .x-button {
         display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
         border: none;
-        border-radius: 5px;
+        border-radius: 0.25rem;
         cursor: pointer;
         text-decoration: none;
         color: #ffffff;
@@ -137,6 +137,6 @@ footer {
     }
 
 #aboutSection {
-    margin-left: 50px;  /* Adjust this value as needed */
+    margin-left: 2.5rem;  /* Adjust this value as needed */
 }
 
