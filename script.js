@@ -211,7 +211,7 @@ function tick() {
             }
             
             var r1 = Math.random();
-            if (r1 > 0.9) {
+            if (r1 > 0.1) {
                 continue; // Skip the current iteration with 90%
             }
 
