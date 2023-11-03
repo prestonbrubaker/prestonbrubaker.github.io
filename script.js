@@ -18,7 +18,7 @@ var que_one = new Array(pCY);
 var que_two = new Array(pCY);
 
 var elHues = {
-    'air' : "#99CCFF",      //Grey for air
+    'air' : "#f6e0be",      //Grey for air
     'powder': "#C2B280",    // Dark yellow for powder
     'block': "#000000",     // Black for block
     'water': "#0000FF",     // Blue for water
