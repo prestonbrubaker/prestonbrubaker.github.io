@@ -51,7 +51,7 @@ var fire_spread_chance_que = 0.4 //  Chance of fire spreading to a que particle
 var que_mov_chance = 0.3    // Chance of que moving
 
 var que_rot_levels = [
-    1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+    0, 0, 1, -1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, -1, 1, 0, 1
 ];
 
 var que_medium = 'willite'
@@ -456,11 +456,17 @@ function tick() {
             else if(direction == 6){
                 que_two[y][x] = 2
             }
+            else if(direction == 7){
+                que_two[y][x] = 3
+            }
             else if(direction == 0){
                 que_two[y][x] = 4
             }
             else if(direction == -1){
                 que_two[y][x] = 3
+            }
+            else if(direction == -2){
+                que_two[y][x] = 2
             }
 
 
