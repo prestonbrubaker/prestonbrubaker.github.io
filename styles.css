@@ -152,8 +152,7 @@ button {
     background-color: cyan;
     color: white;
 }
-
-}    
+    
 
 /* Footer Styles */
 footer {
@@ -169,7 +168,7 @@ footer {
     /* Set the footer's text color to white */
     color: white;
 
-    .text4 {
+   footer .text4 {
         color: white;
     }
 }
