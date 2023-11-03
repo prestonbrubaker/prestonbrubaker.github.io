@@ -51,7 +51,7 @@ var fire_spread_chance_que = 0.4 //  Chance of fire spreading to a que particle
 var que_mov_chance = 0.3    // Chance of que moving
 
 var que_rot_levels = [
-    0, 0, 1, -1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, -1, 1, 0, 1
+    -1, 1
 ];
 
 var que_medium = 'willite'
