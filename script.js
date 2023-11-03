@@ -48,8 +48,10 @@ var fire_spread_chance_wood = 0.5 // Chance of fire spreading to a wood particle
 
 var fire_spread_chance_que = 0.4 //  Chance of fire spreading to a que particle
 
+var que_mov_chance = 0.3    // Chance of que moving
+
 var que_rot_levels = [
-    1, -1, 1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0
+    1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ];
 
 var que_medium = 'willite'
@@ -435,7 +437,7 @@ function tick() {
     // Que physics
     for (var y = 0; y < pCY; y++) {
         for(var x = 0; x < pCX; x++) {
-            if(pA[y][x] != 'que'){
+            if(pA[y][x] != 'que' || Math.random() > que_mov_chance){
                 continue;
             }
             que_two[y][x] += que_rot_levels[que_one[y][x]];
@@ -444,14 +446,22 @@ function tick() {
                 que_one[y][x] = 0;
             }
 
-            if(que_two[y][x] < 1){
-                que_two[y][x] = 4
-            }
-            if(que_two[y][x] > 4){
-                que_two[y][x] = 1
-            }
+            
 
             var direction = que_two[y][x];
+
+            if(direction == 5){
+                que_two[y][x] = 1
+            }
+            else if(direction == 6){
+                que_two[y][x] = 2
+            }
+            else if(direction == 0){
+                que_two[y][x] = 4
+            }
+            else if(direction == -1){
+                que_two[y][x] = 3
+            }
 
 
             if(direction == 1 && y > 0){
@@ -461,21 +471,21 @@ function tick() {
                     que_two[y - 1][x] = direction;
                 }
             }
-            if(direction == 2 && x > 0){
+            else if(direction == 2 && x > 0){
                 if(pA[y][x - 1] == que_medium && pA_temp[y][x - 1] == que_medium){
                     pA_temp[y][x - 1] = 'que';
                     pA_temp[y][x] = que_medium;
                     que_two[y][x - 1] = direction;
                 }
             }
-            if(direction == 3 && y < pCY - 1){
+            else if(direction == 3 && y < pCY - 1){
                 if(pA[y + 1][x] == que_medium && pA_temp[y + 1][x] == que_medium){
                     pA_temp[y + 1][x] = 'que';
                     pA_temp[y][x] = que_medium;
                     que_two[y + 1][x] = direction;
                 }
             }
-            if(direction == 4 && x < pCX - 1){
+            else if(direction == 4 && x < pCX - 1){
                 if(pA[y][x + 1] == que_medium && pA_temp[y][x + 1] == que_medium){
                     pA_temp[y][x + 1] = 'que';
                     pA_temp[y][x] = que_medium;
@@ -595,12 +605,7 @@ function make_gas_and_fire(){
 function change_que_seq(){
     for (var x = 0; x < que_rot_levels.length; x++){
         var r1 = Math.random()
-        if(r1 < 0.5){
-            que_rot_levels[x] = -1;
-        }
-        else{
-            que_rot_levels[x] = 1;
-        }
+        que_rot_levels[x] = Math.floor((r1 * 2 - 1) * 1 + 0.5)
     }
 }
 
