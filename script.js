@@ -24,7 +24,7 @@ var elHues = {
     'water': "#0065a3",     // Blue for water
     'gas': "#fdd207",       // Yellow for gas
     'fire' : "#e23d27",      // Red for fire
-    'hole' : "#045c6a",      // cyan for hole
+    'hole' : "#2d4464",      // cyan for hole
     'clone' : "#8cb857",     // green for clone
     'que' : "#f18933",       // dark red for que
     'wood' : "#951b1e",      // Brown for wood
