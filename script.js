@@ -14,22 +14,27 @@ var pCY = Math.floor(maxH / pixS);
 var pA = new Array(pCY);
 
 var cloneA = new Array(pCY);
+var que_one = new Array(pCY);
+var que_two = new Array(pCY);
 
 var elHues = {
     'air' : "#99CCFF",      //Grey for air
-    'powder': "#8B4513",    // Brown for powder
+    'powder': "#C2B280",    // Dark yellow for powder
     'block': "#000000",     // Black for block
     'water': "#0000FF",     // Blue for water
     'gas': "#FFFF00",       // Yellow for gas
     'fire' : "#FF0000",      // Red for fire
     'hole' : "#00FFFF",      // cyan for hole
-    'clone' : "#00FF00"     // green for clone
+    'clone' : "#00FF00",     // green for clone
+    'que' : "#660000",       // dark red for que
+    'wood' : "#8B4513",      // Brown for wood
+    'willite' : "#FF1493"    // Grey for willite
 };
 
 var penS = 1;
 var penE = 'water';
 
-var tickS = 10;
+var tickS = 0;
 
 var clone_chance = 0.01  // Chance of cloning occuring from a clone block
 
@@ -39,6 +44,17 @@ var fire_spread_chance_gas = 1  // Chance of fire spreading to a gas particle
 
 var fire_spread_chance_powder = 0.5 // Chance of fire spreading to a powder particle
 
+var fire_spread_chance_wood = 0.5 // Chance of fire spreading to a wood particle
+
+var fire_spread_chance_que = 0.4 //  Chance of fire spreading to a que particle
+
+var que_rot_levels = [
+    1, -1
+];
+
+var que_medium = 'willite'
+
+
 
 function normal_setup(){
 
@@ -46,6 +62,8 @@ function normal_setup(){
     for (var i = 0; i < pCY; i++) {
         pA[i] = new Array(pCX).fill('air');
         cloneA[i] = new Array(pCX).fill('air');
+        que_one[i] = new Array(pCX).fill(0);
+        que_two[i] = new Array(pCX).fill(1);
     }
     pA_temp = pA
 
@@ -59,12 +77,6 @@ function normal_setup(){
         pA[y][pCX - 1] = 'block';
     }
 
-    // Test by adding elements
-    pA[Math.floor(pCY / 2)][Math.floor(pCX / 2)] = 'powder';
-    pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2)] = 'water';
-    pA[Math.floor(pCY / 2) + 3][Math.floor(pCX / 2) - 1] = 'water';
-    pA[Math.floor(pCY / 2) + 6][Math.floor(pCX / 2)] = 'gas';
-
 }
 
 
@@ -74,6 +86,8 @@ function manual_setup(){
     for (var i = 0; i < pCY; i++) {
         pA[i] = new Array(pCX).fill('air');
         cloneA[i] = new Array(pCX).fill('air');
+        que_one[i] = new Array(pCX).fill(0);
+        que_two[i] = new Array(pCX).fill(1);
     }
 
     // Set border elements with blocks, except for a small opening
@@ -134,8 +148,8 @@ function manual_setup(){
 
 
 
-//normal_setup();
-manual_setup();
+normal_setup();
+//manual_setup();
 
 // The tick function to draw the elements on the canvas
 function tick() {
@@ -312,16 +326,16 @@ function tick() {
                 continue;   // Skip if the tile is not fire
             }
             
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < fire_spread_chance_powder)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x - 1] == 'gas' && pA_temp[y][x - 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x - 1] == 'powder' && pA_temp[y][x - 1] == 'powder' && Math.random() < fire_spread_chance_powder || pA[y][x - 1] == 'wood' && pA_temp[y][x - 1] == 'wood' && Math.random() < fire_spread_chance_wood|| pA[y][x - 1] == 'que' && pA_temp[y][x - 1] == 'que' && Math.random() < fire_spread_chance_que)){
                 pA_temp[y][x - 1] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < fire_spread_chance_powder)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y][x + 1] == 'gas' && pA_temp[y][x + 1] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y][x + 1] == 'powder' && pA_temp[y][x + 1] == 'powder' && Math.random() < fire_spread_chance_powder || pA[y][x + 1] == 'wood' && pA_temp[y][x + 1] == 'wood' && Math.random() < fire_spread_chance_wood || pA[y][x + 1] == 'que' && pA_temp[y][x + 1] == 'que' && Math.random() < fire_spread_chance_que)){
                 pA_temp[y][x + 1] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < fire_spread_chance_powder)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y - 1][x] == 'gas' && pA_temp[y - 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y - 1][x] == 'powder' && pA_temp[y - 1][x] == 'powder' && Math.random() < fire_spread_chance_powder || pA[y - 1][x] == 'wood' && pA_temp[y - 1][x] == 'wood' && Math.random() < fire_spread_chance_wood || pA[y - 1][x] == 'que' && pA_temp[y - 1][x] == 'que' && Math.random() < fire_spread_chance_que)){
                 pA_temp[y - 1][x] = 'fire';
             }
-            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < fire_spread_chance_powder)){
+            if(pA[y][x] == 'fire' && pA_temp[y][x] == 'fire' && (pA[y + 1][x] == 'gas' && pA_temp[y + 1][x] == 'gas' && Math.random() < fire_spread_chance_gas || pA[y + 1][x] == 'powder' && pA_temp[y + 1][x] == 'powder' && Math.random() < fire_spread_chance_powder || pA[y + 1][x] == 'wood' && pA_temp[y + 1][x] == 'wood' && Math.random() < fire_spread_chance_wood || pA[y + 1][x] == 'que' && pA_temp[y + 1][x] == 'que' && Math.random() < fire_spread_chance_que)){
                 pA_temp[y + 1][x] = 'fire';
             }
         }
@@ -416,6 +430,60 @@ function tick() {
         }
     }
     
+
+    // Que physics
+    for (var y = 0; y < pCY; y++) {
+        for(var x = 0; x < pCX; x++) {
+            if(pA[y][x] != 'que'){
+                continue;
+            }
+            que_two[y][x] += que_rot_levels[que_one[y][x]];
+            que_one[y][x] ++;
+            if(que_one[y][x] > que_rot_levels.length - 1){
+                que_one[y][x] = 0;
+            }
+
+            if(que_two[y][x] < 1){
+                que_two[y][x] = 4
+            }
+            if(que_two[y][x] > 4){
+                que_two[y][x] = 1
+            }
+
+            var direction = que_two[y][x];
+
+
+            if(direction == 1 && y > 0){
+                if(pA[y - 1][x] == que_medium && pA_temp[y - 1][x] == que_medium){
+                    pA_temp[y - 1][x] = 'que';
+                    pA_temp[y][x] = que_medium;
+                    que_two[y - 1][x] = direction;
+                }
+            }
+            if(direction == 2 && x > 0){
+                if(pA[y][x - 1] == que_medium && pA_temp[y][x - 1] == que_medium){
+                    pA_temp[y][x - 1] = 'que';
+                    pA_temp[y][x] = que_medium;
+                    que_two[y][x - 1] = direction;
+                }
+            }
+            if(direction == 3 && y < pCY - 1){
+                if(pA[y + 1][x] == que_medium && pA_temp[y + 1][x] == que_medium){
+                    pA_temp[y + 1][x] = 'que';
+                    pA_temp[y][x] = que_medium;
+                    que_two[y + 1][x] = direction;
+                }
+            }
+            if(direction == 4 && x < pCX - 1){
+                if(pA[y][x + 1] == que_medium && pA_temp[y][x + 1] == que_medium){
+                    pA_temp[y][x + 1] = 'que';
+                    pA_temp[y][x] = que_medium;
+                    que_two[y][x + 1] = direction;
+                }
+            }
+
+        }
+    }
 
     // allow elements to move through the bottom to the top
     for(var x = 0; x < pCX; x++) {
