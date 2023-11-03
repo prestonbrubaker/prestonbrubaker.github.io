@@ -49,7 +49,7 @@ var fire_spread_chance_wood = 0.5 // Chance of fire spreading to a wood particle
 var fire_spread_chance_que = 0.4 //  Chance of fire spreading to a que particle
 
 var que_rot_levels = [
-    1, -1
+    1, -1, 1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0
 ];
 
 var que_medium = 'willite'
@@ -174,7 +174,8 @@ function tick() {
     ctx.font = '16px Arial';
     ctx.fillStyle = '#F55';
     ctx.fillText(`Element Selected: ${penE}`, 10, 30);
-    ctx.fillText(`Pen Size: ${penS}`, 10, 60)
+    ctx.fillText(`Pen Size: ${penS}`, 10, 60);
+    ctx.fillText(`Que Sequence: ${que_rot_levels}`, 10, 90);
 
     // Game logic and physics for elements
 
@@ -587,6 +588,18 @@ function make_gas_and_fire(){
                 }
             }
             
+        }
+    }
+}
+
+function change_que_seq(){
+    for (var x = 0; x < que_rot_levels.length; x++){
+        var r1 = Math.random()
+        if(r1 < 0.5){
+            que_rot_levels[x] = -1;
+        }
+        else{
+            que_rot_levels[x] = 1;
         }
     }
 }
