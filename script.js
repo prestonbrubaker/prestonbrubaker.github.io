@@ -22,7 +22,7 @@ var elHues = {
     'powder': "#cc7c44",    // Dark yellow for powder
     'block': "#2b313f",     // Black for block
     'water': "#0065a3",     // Blue for water
-    'gas': "#fdcc09",       // Yellow for gas
+    'gas': "#fdd207",       // Yellow for gas
     'fire' : "#db2426",      // Red for fire
     'hole' : "#045c6a",      // cyan for hole
     'clone' : "#8cb857",     // green for clone
