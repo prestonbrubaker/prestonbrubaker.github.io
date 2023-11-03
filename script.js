@@ -20,15 +20,15 @@ var que_two = new Array(pCY);
 var elHues = {
     'air' : "#f6e0be",      //Grey for air
     'powder': "#d4a276",    // Dark yellow for powder
-    'block': "#000000",     // Black for block
-    'water': "#0000FF",     // Blue for water
-    'gas': "#FFFF00",       // Yellow for gas
-    'fire' : "#FF0000",      // Red for fire
-    'hole' : "#00FFFF",      // cyan for hole
-    'clone' : "#00FF00",     // green for clone
-    'que' : "#660000",       // dark red for que
-    'wood' : "#8B4513",      // Brown for wood
-    'willite' : "#FF1493"    // Grey for willite
+    'block': "#9d3442",     // Black for block
+    'water': "#235990",     // Blue for water
+    'gas': "#f4ae1c",       // Yellow for gas
+    'fire' : "#ca2027",      // Red for fire
+    'hole' : "#315243",      // cyan for hole
+    'clone' : "#acd2b8",     // green for clone
+    'que' : "#047463",       // dark red for que
+    'wood' : "#7a473c",      // Brown for wood
+    'willite' : "#f26c81"    // Grey for willite
 };
 
 var penS = 1;
