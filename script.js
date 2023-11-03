@@ -28,7 +28,7 @@ var elHues = {
     'clone' : "#9b9640",     // green for clone
     'que' : "#b82025",       // dark red for que
     'wood' : "#b25d35",      // Brown for wood
-    'willite' : "#f26c81"    // Grey for willite
+    'willite' : "#7c8786"    // Grey for willite
 };
 
 var penS = 1;
