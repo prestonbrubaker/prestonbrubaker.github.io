@@ -25,7 +25,7 @@ var elHues = {
     'gas': "#fdd207",       // Yellow for gas
     'fire' : "#e23d27",      // Red for fire
     'hole' : "#2d4464",      // cyan for hole
-    'clone' : "#8cb857",     // green for clone
+    'clone' : "#9b9640",     // green for clone
     'que' : "#f18933",       // dark red for que
     'wood' : "#951b1e",      // Brown for wood
     'willite' : "#f26c81"    // Grey for willite
