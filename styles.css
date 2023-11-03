@@ -13,7 +13,7 @@ header {
     font-family: 'funky', sans-serif;
 
     /* Set the header's background color to black */
-    background-color: black;
+    background-color: #e9af7a;
     
     /* Set the header's text color to white */
     color: white; 
@@ -26,13 +26,13 @@ header {
 }
 
 body {
-    background-color: black;
+    background-color: #e9af7a;
 }
     
 /* Navigation Styles */
 nav ul {
     /* Set the background color of the navigation list to black */
-    background-color: black;
+    background-color: #e9af7a;
     
     /* Remove bullet points from the list */
     list-style-type: none;
@@ -163,7 +163,7 @@ footer {
     padding: 0.75em 0;
     
     /* Set the footer's background color to black */
-    background-color: #000000;
+    background-color: #e9af7a;
     
     /* Set the footer's text color to white */
     color: white;
