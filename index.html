@@ -51,7 +51,7 @@
             <p>The circuit needs to be entered first in the schematic editor. Each component needs to be assigned a footprint corresponding to the specific electronic component (e.g. 3mm or 5mm LED).
             The standard spacing for breadboards and THT components is 0.1 inches, or 2.54 mm. After the schematic is complete, expor to PCB Editor. Place the components and route the copper tracks.
             The copper tracks should be placed on the blue, behind layer, as they will be on the back of the PCB board relative to the components. Track widths should be set to 1.2mm, 
-                though I have had success with 0.8mm and even somewhat below. Make sure to create an outer edge with the edge.cuts layer.
+            though I have had success with 0.8mm and even somewhat below. Make sure to create an outer edge with the edge.cuts layer.
             </p>
             <img src="images/pcb_layout.jpg" alt="PCB Layout">
         </section>
@@ -64,43 +64,38 @@
             some spacing of copper around it so it is possible to solder the pin. I try to make the radius around a given hole 2.0mm when possible. After the sketch is touched up, exit out of sketch editor,
             turn on the option to view the origin axis. Flip both the PCB board and the sketch 180 degrees, and make sure it is near the origin. Have the sketch's z position be 0mm, and the PCB
             board should be at z=-1.6mm.
-            
+            <br><br>
             Next, Switch over to CAM and create a job. Make sure you are using Gerbel, and select the tools. You may use a commonly use a 0.8mm endmill bit, 1.2 endmill bit, and 20 degree v bit. The endmill bits
              also represent drill bits in FreeCad, so no need to also import those tools. Make the speed any high number. I usually cut at max speed.
                 Select the sketch and create an engracing job. You should use the V bit, and do steps of 0.05mm for max depth of -.1mm.
-            
+            <br><br>
             After this, create a drilling job and select all the holes and add them. Usually this job uses the 0.8mm diameter endmill (drill bit will actually be used when machining).
             Some components may require 1.2mm instead.Use max depth of -1.7mm
-            
+            <br><br>
             Finally, create a profiling job and use the 1.2mm endmill. The endmill will actually be used when machining. Select outside for the profiling, and add all the outer edges.
             Use a step of -0.05mm for max depth of -1.7mm.
-            
+            <br><br>
             Export all the jobs individually as .nc files. These will be used for machining.</p>
             <img src="images/gerber_files.jpg" alt="Gerber Files Preparation">
         </section>
 
         <section>
             <h2>Step 4: Machining the PCB</h2>
-            <p>Clamp the copper clad board to a wooden block of the same width and length. Connect a computer to the CNC router (DO NOT USE A MICROSD CARD. WILL CAUSE MANY ERRORS.)
+            <p>Clamp the copper clad board to a wooden block of the same width and length. Connect a computer to the CNC router 
+                (DO NOT USE A MICROSD CARD WITH THE INCLUDED CONTROLLER. WILL CAUSE MANY ERRORS.)
             Use [SOFTWARE] to load the jobs and jogg the bit. The jobs should be done in the order of engraving, drilling, and then cutout of the PCB.</p>
             <img src="images/pcb_assembly.jpg" alt="PCB Assembly">
         </section>
 
         <section>
-            <h2>Step 5: Programming the IoT System</h2>
-            <p>[Guide on programming the IoT functionality, firmware, etc.]</p>
+            <h2>Step 5: Assembly</h2>
+            <p>Brush off and touch up the PCB with a razor blade, and test continuity with a digital multimeter. Place components and solder for final product.</p>
             <img src="images/programming.jpg" alt="Programming the IoT System">
         </section>
 
-        <section>
-            <h2>Step 6: Testing and Troubleshooting</h2>
-            <p>[How to test the PCB and troubleshoot common issues]</p>
-            <img src="images/testing.jpg" alt="Testing the PCB">
-        </section>
 
         <section>
             <h2>Additional Resources</h2>
-            <p>[Add links or references to additional resources]</p>
             <p>Check out an unrelated project: <a href="ARCHIVE/index.html">The Elements</a></p>
         </section>
     </main>
