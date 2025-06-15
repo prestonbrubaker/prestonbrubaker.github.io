@@ -58,7 +58,7 @@
 
         <section>
             <h2>Step 3: FreeCad</h2>
-            <p>Using the KiCadStepUp library, import the KiCad PCB and the footprints. Select the back paths and use the convert to sketch tool.
+            <p>Using the KiCadStepUp library, import the KiCad PCB and the footprints. Select the bottom tracks and use the 2D to sketch tool.
             Run the macro below "Hole Remover" to remove all the circles around the holes. These lines will be engraved, so you do not want to cut around the holes and make it
             more difficult to solder. Next, a lot of touch up it typically needed. Using the sketch editor, ensure that the paths are all sufficient, and that any hole has at least
             some spacing of copper around it so it is possible to solder the pin. I try to make the radius around a given hole 2.0mm when possible. After the sketch is touched up, exit out of sketch editor,
@@ -76,6 +76,64 @@
             Use a step of -0.05mm for max depth of -1.7mm.
             <br><br>
             Export all the jobs individually as .nc files. These will be used for machining.</p>
+            <p>
+                <b>CIRCLE REMOVER SCRIPT</b>
+            <p>
+            <p>
+                import FreeCAD
+
+                doc = FreeCAD.ActiveDocument
+                sketch = doc.getObject("Sketch")  # Replace with the name of your sketch
+                
+                # Safety check
+                if not sketch:
+                    print("Sketch not found.")
+                else:
+                    # Iterate over the geometry in reverse order
+                    for i in reversed(range(len(sketch.Geometry))):  # Reverse to avoid index shifts
+                        geo = sketch.Geometry[i]
+                        # Check if the geometry is a circle
+                        if isinstance(geo, Part.Circle):
+                            diameter = 2.0 * geo.Radius  # Diameter is twice the radius
+                            if 0.5 <= diameter <= 1.5:  # Check if the diameter is in the specified range
+                                sketch.delGeometry(i)  # Correct method to delete geometry
+                                print(f"Removed circle at index {i} with diameter {diameter:.3f} mm")
+                
+                    doc.recompute()
+                    print(f"All circles with diameter between 0.7 mm and 1.0 mm removed from {sketch.Name}.")
+
+            </p>
+            <p>
+                <b>CONSTRAINT REMOVER SCRIPT</b>
+            <p>
+                import FreeCAD
+                import Sketcher
+                
+                # Get the active document
+                doc = FreeCAD.ActiveDocument
+                if not doc:
+                    raise Exception("No active document found. Please open a document in FreeCAD.")
+                
+                # Find the sketch named "Sketch"
+                sketch = doc.getObject("Sketch")
+                if not sketch:
+                    raise Exception("No sketch named 'Sketch' found in the document.")
+                
+                # Get the list of constraints in the sketch
+                constraints = sketch.Constraints
+                
+                # Check if there are any constraints to remove
+                if not constraints:
+                    print("No constraints found in the sketch.")
+                else:
+                    # Remove all constraints by setting the Constraints property to an empty list
+                    sketch.Constraints = []
+                    print(f"Removed {len(constraints)} constraints from the sketch.")
+                
+                # Recompute the document to update the sketch
+                doc.recompute()
+
+        </p>
             <img src="images/gerber_files.jpg" alt="Gerber Files Preparation">
         </section>
 
