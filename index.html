@@ -23,13 +23,17 @@
         </section>
 
         <section>
-            <h2>Materials Needed</h2>
-            <p>[List materials, components, and tools required for the PCB]</p>
+            <h2>Materials/Software Needed</h2>
+            <p>The total cost per PCB board varies between around $2 to more than $20. The CNC, such as below, can be found for a surprisingly low price.</p>
             <ul>
+                <p>HARDWARE</p>
                 <li>CNC Router Kit ($190)<a href="https://www.amazon.com/dp/B07P6K9BL3?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_2&th=1">Link </a></li>
                 <li>CNC Router Bits ($34.99) <a href="https://www.amazon.com/dp/B08CD99PWL?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1">Link</a></li>
                 <li>Copper Clad PCB Laminate Circuit Board, Single Side, 4x2.7 inch 10 Pcs ($6.99) <a href="https://www.amazon.com/dp/B01MCVLDDZ?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_13">Link</a></li>
                 <li>Development Materials (e.g. breadboard, jumper wires, resistors, ect.)</li>
+                <p>SOFTWARE</p>
+                <li>KiCad</li>
+                <li>FreeCad With KiCadStepUp and CAM libararies</li>
             </ul>
             <img src="images/materials.jpg" alt="Materials for PCB">
         </section>
@@ -43,20 +47,42 @@
         </section>
 
         <section>
-            <h2>Step 2: Creating the PCB Layout</h2>
-            <p>[Explain how to create the PCB layout, including tools and tips]</p>
+            <h2>Step 2: Entering the Circuit to KiCad</h2>
+            <p>The circuit needs to be entered first in the schematic editor. Each component needs to be assigned a footprint corresponding to the specific electronic component (e.g. 3mm or 5mm LED).
+            The standard spacing for breadboards and THT components is 0.1 inches, or 2.54 mm. After the schematic is complete, expor to PCB Editor. Place the components and route the copper tracks.
+            The copper tracks should be placed on the blue, behind layer, as they will be on the back of the PCB board relative to the components. Track widths should be set to 1.2mm, 
+                though I have had success with 0.8mm and even somewhat below. Make sure to create an outer edge with the edge.cuts layer.
+            </p>
             <img src="images/pcb_layout.jpg" alt="PCB Layout">
         </section>
 
         <section>
-            <h2>Step 3: Preparing for Fabrication</h2>
-            <p>[Details on exporting Gerber files, choosing a manufacturer, etc.]</p>
+            <h2>Step 3: FreeCad</h2>
+            <p>Using the KiCadStepUp library, import the KiCad PCB and the footprints. Select the back paths and use the convert to sketch tool.
+            Run the macro below "Hole Remover" to remove all the circles around the holes. These lines will be engraved, so you do not want to cut around the holes and make it
+            more difficult to solder. Next, a lot of touch up it typically needed. Using the sketch editor, ensure that the paths are all sufficient, and that any hole has at least
+            some spacing of copper around it so it is possible to solder the pin. I try to make the radius around a given hole 2.0mm when possible. After the sketch is touched up, exit out of sketch editor,
+            turn on the option to view the origin axis. Flip both the PCB board and the sketch 180 degrees, and make sure it is near the origin. Have the sketch's z position be 0mm, and the PCB
+            board should be at z=-1.6mm.
+            
+            Next, Switch over to CAM and create a job. Make sure you are using Gerbel, and select the tools. You may use a commonly use a 0.8mm endmill bit, 1.2 endmill bit, and 20 degree v bit. The endmill bits
+             also represent drill bits in FreeCad, so no need to also import those tools. Make the speed any high number. I usually cut at max speed.
+                Select the sketch and create an engracing job. You should use the V bit, and do steps of 0.05mm for max depth of -.1mm.
+            
+            After this, create a drilling job and select all the holes and add them. Usually this job uses the 0.8mm diameter endmill (drill bit will actually be used when machining).
+            Some components may require 1.2mm instead.Use max depth of -1.7mm
+            
+            Finally, create a profiling job and use the 1.2mm endmill. The endmill will actually be used when machining. Select outside for the profiling, and add all the outer edges.
+            Use a step of -0.05mm for max depth of -1.7mm.
+            
+            Export all the jobs individually as .nc files. These will be used for machining.</p>
             <img src="images/gerber_files.jpg" alt="Gerber Files Preparation">
         </section>
 
         <section>
-            <h2>Step 4: Assembling the PCB</h2>
-            <p>[Instructions for soldering components, assembly tips]</p>
+            <h2>Step 4: Machining the PCB</h2>
+            <p>Clamp the copper clad board to a wooden block of the same width and length. Connect a computer to the CNC router (DO NOT USE A MICROSD CARD. WILL CAUSE MANY ERRORS.)
+            Use [SOFTWARE] to load the jobs and jogg the bit. The jobs should be done in the order of engraving, drilling, and then cutout of the PCB.</p>
             <img src="images/pcb_assembly.jpg" alt="PCB Assembly">
         </section>
 
