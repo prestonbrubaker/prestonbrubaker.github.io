@@ -62,10 +62,10 @@
             Run the macro below "Hole Remover" to remove all the circles around the holes. These lines will be engraved, so you do not want to cut around the holes and make it
             more difficult to solder. Next, a lot of touch up it typically needed. Using the sketch editor, ensure that the paths are all sufficient, and that any hole has at least
             some spacing of copper around it so it is possible to solder the pin. I try to make the radius around a given hole 2.0mm when possible. After the sketch is touched up, exit out of sketch editor,
-            turn on the option to view the origin axis. Flip both the PCB board and the sketch 180 degrees, and make sure it is near the origin. Have the sketch's z position be 0mm, and the PCB
+            turn on the option to toggle Axis Cross. Flip both the PCB board and the sketch 180 degrees, and make sure it is near the origin. Have the sketch's z position be 0mm, and the PCB
             board should be at z=-1.6mm.
             <br><br>
-            Next, Switch over to CAM and create a job. Make sure you are using Gerbel, and select the tools. You may use a commonly use a 0.8mm endmill bit, 1.2 endmill bit, and 20 degree v bit. The endmill bits
+            Next, Switch over to CAM, select both the part and the sketch, and create a job. Make sure you are using grbl for the processor in the output tab, and select the tools. You may use a commonly use a 0.8mm endmill bit, 1.2 endmill bit, and 20 degree v bit. The endmill bits
              also represent drill bits in FreeCad, so no need to also import those tools. Make the speed any high number. I usually cut at max speed.
                 Select the sketch and create an engracing job. You should use the V bit, and do steps of 0.05mm for max depth of -.1mm.
             <br><br>
@@ -132,6 +132,71 @@
                 
                 # Recompute the document to update the sketch
                 doc.recompute()
+
+        </p>
+
+        <p>
+            <b>vbit_20deg.fctb</b>
+        </p>
+        <p>
+                        {
+              "version": 2,
+              "name": "20 Deg. V-Bit",
+              "shape": "v-bit.fcstd",
+              "parameter": {
+                "CuttingEdgeAngle": "20.0000 \u00b0",
+                "Diameter": "3.1750 mm",
+                "CuttingEdgeHeight": "1.0000 mm",
+                "TipDiameter": "0.1000 mm",
+                "Length": "30.0000 mm",
+                "ShankDiameter": "3.1750 mm"
+              },
+              "attribute": {}
+            }
+            
+
+        </p>
+        <p>
+            <b>0_8mm_titanium_endmill.fctb</b>
+        </p>
+        <p>
+            {
+              "version": 2,
+              "name": "0.8mm Titanium Endmill",
+              "shape": "endmill.fcstd",
+              "parameter": {
+                "CuttingEdgeAngle": "0.0000 °",
+                "Diameter": "0.8000 mm",
+                "CuttingEdgeHeight": "6.0000 mm",
+                "TipDiameter": "0.8000 mm",
+                "Length": "38.0000 mm",
+                "ShankDiameter": "3.1750 mm"
+              },
+              "attribute": {}
+            }
+            
+
+        </p>
+        <p>
+            <b>1_2mm_titanium_endmill.fctb</b>
+        </p>
+        <p>
+            {
+              "version": 2,
+              "name": "1.2mm Titanium Endmill",
+              "shape": "endmill.fcstd",
+              "parameter": {
+                "CuttingEdgeAngle": "0.0000 °",
+                "Diameter": "1.2000 mm",
+                "CuttingEdgeHeight": "6.0000 mm",
+                "TipDiameter": "1.2000 mm",
+                "Length": "38.0000 mm",
+                "ShankDiameter": "3.1750 mm"
+              },
+              "attribute": {}
+            }
+
+            
 
         </p>
             <img src="images/gerber_files.jpg" alt="Gerber Files Preparation">
